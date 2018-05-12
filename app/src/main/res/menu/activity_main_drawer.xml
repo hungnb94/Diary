@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_codelock"
+            android:icon="@drawable/lock"
+            android:title="@string/codelock" />
+        <item
+            android:id="@+id/nav_color_style"
+            android:icon="@drawable/paint"
+            android:title="@string/color_and_style" />
+        <item
+            android:id="@+id/nav_slideshow"
+            android:icon="@drawable/ring"
+            android:title="@string/reminder" />
+        <item
+            android:id="@+id/nav_export"
+            android:icon="@drawable/export"
+            android:title="@string/export" />
+        <item
+            android:id="@+id/nav_rate"
+            android:icon="@drawable/rate"
+            android:title="@string/rate_review" />
+        <item
+            android:id="@+id/nav_recommend"
+            android:icon="@drawable/recomend"
+            android:title="@string/recommend_frend" />
+    </group>
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_visit_facebook"
+            android:icon="@drawable/facebook"
+            android:title="@string/visit_facebook" />
+        <item
+            android:id="@+id/nav_feedback"
+            android:icon="@drawable/feedback"
+            android:title="@string/feedback" />
+        <item
+            android:id="@+id/nav_help"
+            android:icon="@drawable/help"
+            android:title="@string/help" />
+        <item
+            android:id="@+id/nav_about"
+            android:icon="@drawable/about"
+            android:title="@string/about" />
+    </group>
+
+</menu>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <item
+        android:id="@+id/action_settings"
+        android:icon="@drawable/menu_option"
+        android:title="@string/action_settings"
+        app:showAsAction="always">
+        <menu>
+            <item
+                android:id="@+id/action_reset_password"
+                android:icon="@drawable/lock_black"
+                android:title="@string/reset_password"
+                app:showAsAction="always" />
+            <item
+                android:id="@+id/action_help"
+                android:icon="@drawable/help_black"
+                android:title="@string/help"
+                app:showAsAction="always" />
+        </menu>
+    </item>
+</menu>

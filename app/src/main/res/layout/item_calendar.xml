@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="@dimen/calender_dimen"
+    android:orientation="vertical"
+    android:layout_height="@dimen/calender_dimen">
+
+        <TextView
+            android:id="@+id/tvMonth"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="@color/colorCalender"
+            android:gravity="center"
+            android:textAllCaps="true"
+            android:text="Apr"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/text_size_12"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvDate"
+            android:textAllCaps="true"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="@color/colorBrown"
+            android:gravity="center"
+            android:text="20"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/text_size_15"
+            android:textStyle="bold" />
+
+        <TextView
+            android:textAllCaps="true"
+            android:id="@+id/tvYear"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="@color/colorBrown"
+            android:gravity="center"
+            android:text="2018"
+            android:textSize="@dimen/text_size_10" />
+</LinearLayout>

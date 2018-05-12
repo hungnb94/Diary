@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/action_settings"
+        android:icon="@drawable/menu_option"
+        android:title="@string/action_settings"
+        app:showAsAction="always">
+        <menu>
+            <item
+                android:id="@+id/action_change_password"
+                android:icon="@drawable/lock_black"
+                android:title="@string/change_password"
+                app:showAsAction="always" />
+            <item
+                android:id="@+id/action_sign_out"
+                android:icon="@drawable/sign_out_black"
+                android:title="@string/sign_out"
+                app:showAsAction="always" />
+            <item
+                android:id="@+id/action_terminate_acc"
+                android:icon="@drawable/error_black"
+                android:title="@string/terminate_acc"
+                app:showAsAction="always" />
+            <item
+                android:id="@+id/action_help"
+                android:icon="@drawable/help_black"
+                android:title="@string/help"
+                app:showAsAction="always" />
+        </menu>
+    </item>
+</menu>

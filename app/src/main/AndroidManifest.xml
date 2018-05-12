@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="example.com.hb.diary">
+
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <application
+        android:name=".App"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".activity.SplashActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity.MainActivity"
+            android:label="@string/title_activity_main"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".activity.LockActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".activity.BaseActivity" />
+        <activity
+            android:name=".activity.AddingNoteActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.PasswordActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.SettingStyleActivity"
+            android:label="@string/about"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.CREATE_SHORTCUT" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity.AccountGuideActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.LogInActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.ResetPasswordActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.ReminderActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.RateReviewActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.SignUpActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.HelpActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.MyAccountActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.SignOutActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.AboutActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.ExportActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.ChangePasswordActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.TerminateAccountActivity"
+            android:screenOrientation="portrait" />
+    </application>
+
+</manifest>

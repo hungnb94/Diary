@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/rootLayout"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragment.PasscodeChangeFragment">
+
+    <RelativeLayout
+        android:id="@+id/layoutPasscodeChange"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorDefault">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/action_bar_size"
+                android:background="@color/colorPrimary">
+
+                <ImageView
+                    android:id="@+id/ivClose"
+                    android:layout_width="@dimen/img_close_passcode_frag"
+                    android:layout_height="@dimen/img_close_passcode_frag"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/margin_medium"
+                    android:src="@drawable/delete" />
+
+
+                <android.support.design.widget.AppBarLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:theme="@style/AppTheme.AppBarOverlay">
+
+                    <android.support.v7.widget.Toolbar
+                        app:title="@string/codelock"
+                        android:id="@+id/toolbarChangePasscode"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+
+                </android.support.design.widget.AppBarLayout>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="4"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:src="@drawable/icon_ok" />
+
+                <TextView
+                    android:id="@+id/tvMessage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_quite"
+                    android:gravity="center"
+                    android:text="@string/codelock_activated"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="@dimen/text_size_18"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btnClose"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/btn_save_height"
+                android:alpha="0.8"
+                android:background="@color/brownAccount"
+                android:text="@string/ok"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/text_size_20" />
+        </LinearLayout>
+
+    </RelativeLayout>
+</FrameLayout>

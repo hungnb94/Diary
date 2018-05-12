@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/colorDefault"
+    android:id="@+id/rootLayout"
+    tools:context=".fragment.OfflineFragment">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/action_bar_size"
+            android:background="@color/colorPrimary">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/ivClose"
+                    android:layout_width="@dimen/img_close_passcode_frag"
+                    android:layout_height="@dimen/img_close_passcode_frag"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/margin_medium"
+                    android:src="@drawable/delete" />
+
+            </LinearLayout>
+
+
+            <android.support.design.widget.AppBarLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:theme="@style/AppTheme.AppBarOverlay">
+
+                <android.support.v7.widget.Toolbar
+                    android:id="@+id/toolbarChangePasscode"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:title="@string/offline"
+                    app:titleTextColor="@color/colorWhite" />
+
+            </android.support.design.widget.AppBarLayout>
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1.2"
+            android:src="@drawable/offline_wifi" />
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_quite"
+            android:gravity="center"
+            android:text="@string/no_internet_connection"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/text_size_18"
+            android:textStyle="bold" />
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.5" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/could_not_connect"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/text_size_15" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_quite"
+                android:gravity="center"
+                android:text="@string/check_your_connection"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/text_size_15" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1.5">
+
+            <Button
+                android:id="@+id/btnClose"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/btn_save_height"
+                android:layout_gravity="bottom"
+                android:alpha="0.8"
+                android:background="@color/brownAccount"
+                android:textColor="@color/colorWhite"
+                android:text="@string/ok"
+                android:textSize="@dimen/text_size_20" />
+        </LinearLayout>
+    </LinearLayout>
+
+</FrameLayout>

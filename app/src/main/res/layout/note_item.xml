@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/note_item_height"
+    android:background="@drawable/border_on_click"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <View
+            android:id="@+id/vSeperator"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/colorBrown" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <View
+                android:layout_width="@dimen/calender_shadow_width"
+                android:layout_height="match_parent"
+                android:background="@color/colorCalender" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/margin_small"
+                android:orientation="horizontal">
+
+
+                <include layout="@layout/item_calendar" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/margin_medium"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tvTitleNote"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:ellipsize="end"
+                        android:gravity="center_vertical"
+                        android:maxLines="1"
+                        android:text="Title"
+                        android:textColor="@color/colorDefault"
+                        android:textSize="@dimen/text_size_17" />
+
+                    <TextView
+                        android:id="@+id/tvContentNote"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:ellipsize="end"
+                        android:gravity="center_vertical"
+                        android:maxLines="1"
+                        android:text="Content for title"
+                        android:textColor="@color/colorDefault"
+                        android:textSize="@dimen/text_size_15" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <ImageView
+        android:visibility="gone"
+        android:layout_marginLeft="@dimen/margin_img_sync"
+        android:layout_alignParentBottom="true"
+        android:src="@drawable/sync"
+        android:background="@color/colorRed"
+        android:layout_width="@dimen/image_sync_width"
+        android:layout_height="@dimen/image_sync_width" />
+</RelativeLayout>

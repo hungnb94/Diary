@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layoutSettingStyle"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorDefault"
+    android:orientation="vertical"
+    tools:context=".activity.SettingStyleActivity">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <android.support.v7.widget.Toolbar
+            app:titleTextColor="@color/colorWhite"
+            app:title="@string/color_and_style"
+            android:id="@+id/toolbarSettingStyle"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/colorPrimary" />
+
+    </android.support.design.widget.AppBarLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/margin_quite"
+            android:layout_marginRight="@dimen/margin_quite"
+            android:orientation="vertical">
+
+
+            //Theme
+            <TextView
+                style="@style/TextViewSettingStyle"
+                android:text="@string/theme" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/row_height"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:id="@+id/llTheme"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/row_height"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="@dimen/row_height_bigger"
+                    android:layout_height="@dimen/row_height_bigger"
+                    android:gravity="right">
+
+                    <ImageView
+                        android:id="@+id/ivChangeBackgroundColor"
+                        android:layout_width="@dimen/row_height"
+                        android:layout_height="@dimen/row_height"
+                        android:padding="@dimen/margin_small"
+                        android:src="@drawable/icon_color_picker" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+
+            //Text style
+
+            <TextView
+                style="@style/TextViewSettingStyle"
+                android:text="@string/text_style" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <example.com.hb.diary.Utils.LineEditText
+                    android:textSize="@dimen/text_size_17"
+                    android:id="@+id/edtContentDemo"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:gravity="top"
+                    android:layout_marginRight="@dimen/margin_quite"
+                    android:layout_weight="1"
+                    android:background="@drawable/border_edittext"
+                    android:focusable="false"
+                    android:ellipsize="end"
+                    android:text="@string/poem_lorem"
+                    app:orientation="horizontal" />
+
+                <LinearLayout
+                    android:layout_width="@dimen/row_height"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/ivChangeTextColor"
+                        android:layout_width="@dimen/row_height"
+                        android:layout_height="@dimen/row_height"
+                        android:layout_gravity="center"
+                        android:padding="@dimen/margin_small"
+                        android:src="@drawable/icon_color_picker" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/row_height"
+                        android:layout_gravity="center">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:text="F"
+                            android:textColor="@color/colorWhite"
+                            android:textSize="@dimen/text_size_20" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:text="f"
+                            android:textColor="@color/colorWhite"
+                            android:textSize="@dimen/text_size_20"
+                            android:textStyle="italic" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/row_height">
+
+
+                <SeekBar
+                    android:id="@+id/seekBar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:alpha="0.8"
+                    android:max="50"
+                    android:progress="0"
+                    android:progressDrawable="@drawable/custom_seekbar" />
+
+                <LinearLayout
+                    android:layout_width="@dimen/row_height_bigger"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical">
+
+                    <CheckBox
+                        android:id="@+id/cbLines"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="true" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/lines"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="@dimen/text_size_15"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+            //Date style
+
+            <TextView
+                style="@style/TextViewSettingStyle"
+                android:text="@string/date_style" />
+
+            <include layout="@layout/row_date_style" />
+
+
+            //Shortcut
+
+            <TextView
+                style="@style/TextViewSettingStyle"
+                android:text="@string/short_cut" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/row_height">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center">
+
+
+                    <ImageView
+                        android:id="@+id/ivShortcut1"
+                        android:layout_width="@dimen/row_height"
+                        android:layout_height="@dimen/row_height"
+                        android:src="@drawable/ic_launcher_blue" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center">
+
+
+                    <ImageView
+                        android:id="@+id/ivShortcut2"
+                        android:layout_width="@dimen/row_height"
+                        android:layout_height="@dimen/row_height"
+                        android:src="@drawable/ic_launcher_purple" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center">
+
+
+                    <ImageView
+                        android:id="@+id/ivShortcut3"
+                        android:layout_width="@dimen/row_height"
+                        android:layout_height="@dimen/row_height"
+                        android:src="@drawable/ic_launcher_green" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center">
+
+
+                    <ImageView
+                        android:id="@+id/ivShortcut4"
+                        android:layout_width="@dimen/row_height"
+                        android:layout_height="@dimen/row_height"
+                        android:src="@drawable/ic_launcher_orange" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+</LinearLayout>

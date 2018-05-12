@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#212121</color>
+    <color name="colorPrimaryDark">#212121</color>
+    <color name="colorDefault">#28B600</color>
+    <color name="colorAccent">#28B600</color>
+    <color name="colorCalender">#ED8632</color>
+    <color name="colorBrown">#D8D8D8</color>
+    <color name="colorLightBlue">#80CBC4</color>
+    <color name="colorWhite">#FFFFFF</color>
+    <color name="brownAccount">#5A595B</color>
+    <color name="blackNavigation">#303030</color>
+    <color name="grey">#E0E0E0</color>
+    <color name="color22">#69009C</color>
+    <color name="color21">#43009C</color>
+    <color name="color20">#37009C</color>
+    <color name="color19">#1F00B6</color>
+    <color name="color18">#0C24D0</color>
+    <color name="color17">#0063B6</color>
+    <color name="color16">#0090CF</color>
+    <color name="color15">#009A9A</color>
+    <color name="color14">#00B563</color>
+    <color name="color13">#00CF00</color>
+    <color name="color12">#00FF00</color>
+    <color name="color11">#8FFF00</color>
+    <color name="color10">#FFCE00</color>
+    <color name="color9">#FFB300</color>
+    <color name="color8">#FF9A00</color>
+    <color name="color7">#FF8000</color>
+    <color name="color6">#FF6500</color>
+    <color name="color5">#FF0000</color>
+    <color name="color4">#EB0065</color>
+    <color name="color3">#E83998</color>
+    <color name="color2">#D1009A</color>
+    <color name="color1">#9D009B</color>
+    <color name="colorRed">#FF0000</color>
+</resources>

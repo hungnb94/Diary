@@ -1,0 +1,98 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rootLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorDefault"
+    android:orientation="vertical"
+    tools:context="example.com.hb.diary.activity.LockActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="right">
+
+            <ImageView
+                android:id="@+id/ivHelp"
+                android:layout_width="@dimen/img_help"
+                android:layout_height="@dimen/img_help"
+                android:layout_gravity="right"
+                android:src="@drawable/icon_help" />
+        </FrameLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_90">
+
+            <include layout="@layout/header_splash" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginLeft="@dimen/margin_medium"
+            android:layout_marginRight="@dimen/margin_medium"
+            android:layout_weight="1">
+
+            <LinearLayout
+                style="@style/LinearLayoutInputPassword"
+                android:layout_width="match_parent"
+                android:layout_gravity="center">
+
+                <ImageView
+                    style="@style/ImageViewInInputPasswordField"
+                    android:src="@drawable/code" />
+
+                <EditText
+                    android:id="@+id/edtEnterCode"
+                    style="@style/EdittextPasswordActivity"
+                    android:hint="@string/enter_code"
+                    android:inputType="textPassword" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/btnUnlock"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/btn_unlock_height"
+                android:alpha="0.8"
+                android:background="@color/brownAccount"
+                android:text="@string/unlock"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/text_size_15"
+                android:textStyle="bold" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/padding_1" />
+
+            <Button
+                android:id="@+id/btnForgotCode"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/btn_forgot_code_height"
+                android:alpha="0.8"
+                android:background="@color/brownAccount"
+                android:baselineAligned="false"
+                android:text="@string/forgot_code"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/text_size_14"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

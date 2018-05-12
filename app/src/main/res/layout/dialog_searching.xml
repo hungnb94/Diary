@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="@dimen/dialog_width"
+    android:layout_height="wrap_content"
+    android:background="@color/colorPrimary"
+    android:orientation="vertical"
+    android:padding="10dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/action_bar_size">
+
+        <Spinner
+            android:id="@+id/spinnerFilter"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:gravity="center_vertical"
+            android:textSize="@dimen/text_size_16" />
+
+        <EditText
+            android:textColor="@android:color/white"
+            android:backgroundTint="@color/colorLightBlue"
+            android:gravity="center_vertical"
+            android:layout_marginLeft="@dimen/padding_dialog"
+            android:textSize="@dimen/text_size_17"
+            android:id="@+id/edtSearch"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="8" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/action_bar_size">
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_gravity="right"
+            android:gravity="right">
+
+            <TextView
+                android:id="@+id/tvClose"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:paddingLeft="@dimen/padding_dialog"
+                android:paddingRight="@dimen/padding_dialog"
+                android:text="@string/close"
+                android:textAllCaps="true"
+                android:textColor="@color/colorLightBlue"
+                android:textSize="@dimen/text_size_15"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvSearch"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:paddingLeft="@dimen/padding_dialog"
+                android:paddingRight="@dimen/padding_dialog"
+                android:text="@string/action_search"
+                android:textAllCaps="true"
+                android:textColor="@color/colorLightBlue"
+                android:textSize="@dimen/text_size_15"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </RelativeLayout>
+</LinearLayout>

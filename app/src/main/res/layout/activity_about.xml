@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rootLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorDefault"
+    tools:context=".activity.AboutActivity">
+
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:layout_weight="1"
+            app:title="@string/account"
+            app:titleTextColor="@color/colorWhite" />
+
+    </android.support.design.widget.AppBarLayout>
+
+    <LinearLayout
+        android:id="@+id/llTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/appBarLayout"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/margin_medium">
+
+        <include layout="@layout/header_splash" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginBottom="@dimen/margin_medium"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/llTitle"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvVersion"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/margin_medium"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/version"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/text_size_17"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvNumberNotes"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Number of note: 2"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/text_size_16" />
+
+        <TextView
+            android:id="@+id/tvId"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="ID: 1fjdkieloi44ejekmkgjiuie"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/text_size_14" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/web_page"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/text_size_15"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+</RelativeLayout>

@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/llAccountGuide"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorDefault"
+    android:orientation="vertical"
+    tools:context=".activity.AccountGuideActivity">
+
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:layout_weight="1"
+            app:title="@string/account"
+            app:titleTextColor="@color/colorWhite" />
+
+    </android.support.design.widget.AppBarLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/cloud_img_height"
+        android:src="@drawable/clouds_icon" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/margin_medium"
+        android:layout_marginTop="@dimen/margin_large"
+        android:gravity="center"
+        android:text="@string/connect_with_the_cloud"
+        android:textColor="@color/colorWhite"
+        android:textSize="@dimen/text_size_20" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margin_large"
+        android:layout_marginTop="@dimen/margin_40">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/margin_medium"
+            android:layout_weight="1"
+            android:gravity="right">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:src="@drawable/checkmark" />
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:text="@string/sync_with_other_devices"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/text_size_14" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margin_large">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/margin_medium"
+            android:layout_weight="1"
+            android:gravity="right">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:src="@drawable/checkmark" />
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:text="@string/restore_notes"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/text_size_14" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margin_large">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/margin_medium"
+            android:layout_weight="1"
+            android:gravity="right">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:src="@drawable/checkmark" />
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:text="@string/sync_with_other_devices"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/text_size_14" />
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_40"
+        android:gravity="center"
+        android:paddingLeft="@dimen/padding_small"
+        android:paddingRight="@dimen/padding_small"
+        android:paddingTop="@dimen/margin_medium"
+        android:text="@string/benefit_guide"
+        android:textColor="@color/colorWhite"
+        android:textSize="@dimen/text_size_15" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/btnSignUp"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/btn_save_height"
+                android:layout_alignParentBottom="true"
+                android:alpha="0.8"
+                android:background="@color/brownAccount"
+                android:text="@string/sign_up"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/text_size_15"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:id="@+id/llDeactive"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <View
+                    android:id="@+id/view"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_below="@id/btnSavePassword" />
+
+
+                <Button
+                    android:id="@+id/btnLogIn"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/btn_deactive"
+                    android:layout_alignParentBottom="true"
+                    android:layout_below="@+id/view"
+                    android:alpha="0.8"
+                    android:background="@color/brownAccount"
+                    android:text="@string/sign_in_existing_account"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="@dimen/text_size_12"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+</LinearLayout>

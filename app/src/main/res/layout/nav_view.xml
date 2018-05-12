@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/blackNavigation"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/llCodelock"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            style="@style/NavigationImageViewItem"
+            android:src="@drawable/lock" />
+
+        <TextView
+            style="@style/NavigationItemText"
+            android:text="@string/codelock" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/llColorStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            style="@style/NavigationImageViewItem"
+            android:src="@drawable/paint" />
+
+        <TextView
+            style="@style/NavigationItemText"
+            android:text="@string/color_and_style" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/llReminder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            style="@style/NavigationImageViewItem"
+            android:src="@drawable/ring" />
+
+        <TextView
+            style="@style/NavigationItemText"
+            android:text="@string/reminder" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/llExport"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            style="@style/NavigationImageViewItem"
+            android:src="@drawable/export" />
+
+        <TextView
+            style="@style/NavigationItemText"
+            android:text="@string/export" />
+    </LinearLayout>
+
+    <!--<LinearLayout-->
+        <!--android:id="@+id/llRateReview"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content">-->
+
+        <!--<ImageView-->
+            <!--style="@style/NavigationImageViewItem"-->
+            <!--android:src="@drawable/rate" />-->
+
+        <!--<TextView-->
+            <!--style="@style/NavigationItemText"-->
+            <!--android:text="@string/rate_review" />-->
+    <!--</LinearLayout>-->
+
+    <LinearLayout
+        android:id="@+id/llRecommendFriend"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            style="@style/NavigationImageViewItem"
+            android:src="@drawable/recomend" />
+
+        <TextView
+            style="@style/NavigationItemText"
+            android:text="@string/recommend_frend" />
+    </LinearLayout>
+    <View
+        android:background="@color/brownAccount"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"/>
+
+    <LinearLayout
+        android:id="@+id/llVisitFacebook"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            style="@style/NavigationImageViewItem"
+            android:src="@drawable/facebook" />
+
+        <TextView
+            style="@style/NavigationItemText"
+            android:text="@string/visit_facebook" />
+    </LinearLayout>
+
+    <!--<LinearLayout-->
+        <!--android:id="@+id/llFeedback"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content">-->
+
+        <!--<ImageView-->
+            <!--style="@style/NavigationImageViewItem"-->
+            <!--android:src="@drawable/feedback" />-->
+
+        <!--<TextView-->
+            <!--style="@style/NavigationItemText"-->
+            <!--android:text="@string/feedback" />-->
+    <!--</LinearLayout>-->
+
+    <LinearLayout
+        android:id="@+id/llHelp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            style="@style/NavigationImageViewItem"
+            android:src="@drawable/help" />
+
+        <TextView
+            style="@style/NavigationItemText"
+            android:text="@string/help" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/llAbout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            style="@style/NavigationImageViewItem"
+            android:src="@drawable/about" />
+
+        <TextView
+            style="@style/NavigationItemText"
+            android:text="@string/about" />
+    </LinearLayout>
+</LinearLayout>

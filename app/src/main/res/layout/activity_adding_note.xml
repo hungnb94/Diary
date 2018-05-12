@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layoutAddingNote"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorDefault"
+    tools:context="example.com.hb.diary.activity.AddingNoteActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <android.support.design.widget.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/AppTheme.AppBarOverlay">
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="@color/colorPrimary"
+                app:popupTheme="@style/AppTheme.PopupOverlay" />
+
+        </android.support.design.widget.AppBarLayout>
+
+        <LinearLayout style="@style/LinearLayoutAddNoteActivity">
+
+            <ImageView
+                style="@style/ImageViewInInputPasswordField"
+                android:layout_marginLeft="@dimen/margin_small"
+                android:src="@drawable/calendar" />
+
+            <TextView
+                android:id="@+id/tvDateToAdd"
+                style="@style/TextInAddNoteActivity"
+                android:text="Thursday, April 19, 2018" />
+        </LinearLayout>
+
+
+        <LinearLayout style="@style/LinearLayoutAddNoteActivity">
+
+            <ImageView
+                style="@style/ImageViewInInputPasswordField"
+                android:layout_marginLeft="@dimen/margin_small"
+                android:src="@drawable/note" />
+
+            <EditText
+                android:id="@+id/edtTitle"
+                style="@style/TextInAddNoteActivity"
+                android:hint="Add title"
+                android:maxLines="1" />
+        </LinearLayout>
+
+        <example.com.hb.diary.Utils.LineEditText
+            android:id="@+id/edtContent"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/margin_medium"
+            android:background="@drawable/border_edittext"
+            android:drawableBottom="@color/colorDefault"
+            android:fadingEdge="vertical"
+            android:gravity="top"
+            android:hint="@string/start_typing_here"
+            android:inputType="textMultiLine"
+            android:padding="@dimen/margin_medium"
+            android:scrollbars="vertical"
+            android:textColor="@color/colorDefault"
+            android:textSize="@dimen/text_size_17" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tvSaving"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:background="@drawable/border_saving"
+        android:padding="10dp"
+        android:text="@string/saving"
+        android:textSize="@dimen/text_size_15"
+        android:visibility="invisible" />
+</RelativeLayout>

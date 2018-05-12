@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rowDate"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <LinearLayout
+                android:id="@+id/llCalendar1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/colorWhite"
+                android:padding="@dimen/padding_3">
+
+                <LinearLayout
+                    android:layout_width="@dimen/calender_dimen"
+                    android:layout_height="@dimen/calender_dimen"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:background="@color/colorCalender"
+                        android:gravity="center"
+                        android:text="APR"
+                        android:textColor="@android:color/white"
+                        android:textSize="@dimen/text_size_12"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:background="@color/colorBrown"
+                        android:gravity="center"
+                        android:text="20"
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/text_size_15"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:background="@color/colorBrown"
+                        android:gravity="center"
+                        android:text="2018"
+                        android:textSize="@dimen/text_size_10" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <LinearLayout
+                android:id="@+id/llCalendar2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/padding_3">
+
+
+                <LinearLayout
+                    android:layout_width="@dimen/calender_dimen"
+                    android:layout_height="@dimen/calender_dimen"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:background="@color/colorCalender"
+                        android:gravity="center"
+                        android:text="APR"
+                        android:textColor="@android:color/white"
+                        android:textSize="@dimen/text_size_12"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:background="@color/colorBrown"
+                        android:gravity="center"
+                        android:text="20"
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/text_size_15"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:background="@color/colorBrown"
+                        android:gravity="center"
+                        android:text="MON"
+                        android:textSize="@dimen/text_size_10" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <LinearLayout
+                android:id="@+id/llCalendar3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/padding_3">
+
+
+                <LinearLayout
+                    android:layout_width="@dimen/calender_dimen"
+                    android:layout_height="@dimen/calender_dimen"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:background="@color/colorCalender"
+                        android:gravity="center"
+                        android:text="23"
+                        android:textColor="@android:color/white"
+                        android:textSize="@dimen/text_size_12"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:background="@color/colorBrown"
+                        android:gravity="center"
+                        android:text="MON"
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/text_size_15"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:background="@color/colorBrown"
+                        android:gravity="center"
+                        android:text="APR"
+                        android:textSize="@dimen/text_size_10" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <LinearLayout
+                android:id="@+id/llCalendar4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/padding_3">
+
+
+                <LinearLayout
+                    android:layout_width="@dimen/calender_dimen"
+                    android:layout_height="@dimen/calender_dimen"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:background="@color/colorCalender"
+                        android:gravity="center"
+                        android:text="MON"
+                        android:textColor="@android:color/white"
+                        android:textSize="@dimen/text_size_12"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:background="@color/colorBrown"
+                        android:gravity="center"
+                        android:text="20"
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/text_size_15"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:background="@color/colorBrown"
+                        android:gravity="center"
+                        android:text="APR/2018"
+                        android:textSize="@dimen/text_size_10" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+</LinearLayout>

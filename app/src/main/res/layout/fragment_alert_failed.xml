@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorDefault"
+    android:id="@+id/rootLayout"
+    tools:context=".fragment.AlertFailedFragment">
+
+
+    <LinearLayout
+        android:id="@+id/llSignUp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/colorPrimary">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/ivClose"
+                    android:layout_width="@dimen/img_close_passcode_frag"
+                    android:layout_height="@dimen/img_close_passcode_frag"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/margin_medium"
+                    android:src="@drawable/delete" />
+
+            </LinearLayout>
+
+            <android.support.design.widget.AppBarLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:theme="@style/AppTheme.AppBarOverlay">
+
+                <android.support.v7.widget.Toolbar
+                    android:id="@+id/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    app:title="@string/sign_in"
+                    app:titleTextColor="@color/colorWhite" />
+
+            </android.support.design.widget.AppBarLayout>
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.4" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.5"
+            android:src="@drawable/error_icon" />
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_medium"
+            android:gravity="center"
+            android:text="@string/title"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/text_size_18"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvSmallTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_medium"
+            android:gravity="center"
+            android:text="@string/title"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/text_size_16"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/tvMessage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="@dimen/margin_medium"
+                android:layout_marginRight="@dimen/margin_medium"
+                android:gravity="center"
+                android:text="@string/entries_will_synce"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/text_size_14" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <Button
+                android:id="@+id/btnClose"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/btn_save_height"
+                android:layout_alignParentBottom="true"
+                android:alpha="0.8"
+                android:background="@color/brownAccount"
+                android:text="@string/ok"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/text_size_15"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</FrameLayout>

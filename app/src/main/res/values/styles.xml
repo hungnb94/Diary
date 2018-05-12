@@ -1,0 +1,100 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="ToolbarTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:itemBackground">@android:color/black</item>
+        <item name="android:textColor">@color/colorWhite</item>
+    </style>
+    `
+
+    <style name="AppTheme.WhiteAccent">
+        <item name="colorAccent">@android:color/white</item> <!-- Whatever color you want-->
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="NavigationItemText">
+        <item name="android:textSize">@dimen/text_size_14</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">@dimen/item_nav_view_height</item>
+        <item name="android:layout_marginLeft">@dimen/margin_quite</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="NavigationImageViewItem">
+        <item name="android:layout_width">@dimen/nav_img_width</item>
+        <item name="android:layout_height">@dimen/nav_img_width</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:layout_marginLeft">@dimen/margin_small</item>
+    </style>
+
+    <style name="EdittextPasswordActivity">
+        <item name="android:layout_marginLeft">@dimen/margin_small</item>
+        <item name="android:textSize">@dimen/text_size_17</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+
+    <style name="LinearLayoutInputPassword">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/edt_code_height</item>
+        <item name="android:layout_marginLeft">@dimen/margin_large</item>
+        <item name="android:layout_marginRight">@dimen/margin_large</item>
+        <item name="android:background">@drawable/border_edittext</item>
+        <item name="android:paddingLeft">@dimen/margin_medium</item>
+        <item name="android:orientation">horizontal</item>
+    </style>
+
+    <style name="ImageViewInInputPasswordField">
+        <item name="android:layout_width">@dimen/image_in_edittext</item>
+        <item name="android:layout_height">@dimen/image_in_edittext</item>
+        <item name="android:layout_gravity">center</item>
+    </style>
+
+    <style name="LinearLayoutAddNoteActivity">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/field_add_note_height</item>
+        <item name="android:layout_marginLeft">@dimen/margin_medium</item>
+        <item name="android:layout_marginRight">@dimen/margin_medium</item>
+        <item name="android:layout_marginTop">@dimen/margin_medium</item>
+        <item name="android:background">@drawable/border_edittext</item>
+    </style>
+
+    <style name="TextInAddNoteActivity">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_marginLeft">@dimen/margin_small</item>
+        <item name="android:background">@drawable/border_edittext</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:textColor">@color/colorDefault</item>
+        <item name="android:textSize">@dimen/text_size_18</item>
+    </style>
+
+    <style name="EdittextContent">
+        <item name="colorControlNormal">@color/colorDefault</item>
+        <item name="colorControlActivated">@color/colorCalender</item>
+        <item name="colorControlHighlight">@color/colorAccent</item>
+    </style>
+
+    <style name="TextViewSettingStyle">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:textSize">@dimen/text_size_18</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/row_height</item>
+    </style>
+</resources>
