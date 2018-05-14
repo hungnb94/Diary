@@ -12,7 +12,7 @@ import android.widget.TextView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import example.com.hb.diary.R;
-import example.com.hb.diary.Utils.MyFirebaseUtil;
+import example.com.hb.diary.Utils.MyFirebase;
 import example.com.hb.diary.Utils.ShareIntentUtils;
 import example.com.hb.diary.activity.AddingNoteActivity;
 import example.com.hb.diary.activity.MainActivity;
@@ -74,7 +74,7 @@ public class SelectNoteDialog extends Dialog {
             public void onClick(View v) {
                 Log.d(TAG, "Delete item");
                 String noteId = note.getId();
-                MyFirebaseUtil myFirebase = new MyFirebaseUtil(context);
+                MyFirebase myFirebase = new MyFirebase(context);
                 myFirebase.deleteOnFirebase(noteId);
                 Realm realm = Realm.getDefaultInstance();
                 final RealmResults<Note> results = realm.where(Note.class)

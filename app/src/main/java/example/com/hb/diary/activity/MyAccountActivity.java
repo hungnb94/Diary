@@ -103,6 +103,9 @@ public class MyAccountActivity extends BaseActivity {
         }
     }
 
+    /**
+     * Change password
+     */
     private void changePassword() {
         Intent intent = new Intent(this, ChangePasswordActivity.class);
         startActivity(intent);
@@ -120,16 +123,25 @@ public class MyAccountActivity extends BaseActivity {
         }
     }
 
+    /**
+     * User sign out
+     */
     private void signOut() {
         Intent intent = new Intent(this, SignOutActivity.class);
         startActivity(intent);
     }
 
+    /**
+     * Terminate current account
+     */
     private void terminateAcc() {
         Intent intent = new Intent(this, TerminateAccountActivity.class);
         startActivity(intent);
     }
 
+    /**
+     * Click help
+     */
     private void help() {
         Intent intent = new Intent(this, HelpActivity.class);
         startActivity(intent);

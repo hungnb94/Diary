@@ -68,6 +68,9 @@ public class ExportActivity extends BaseActivity {
                 getResources().getString(R.string.complete_action_using)));
     }
 
+    /**
+     * Create file save data before export
+     */
     private void createFile() {
         RealmResults<Note> realmResults = Realm.getDefaultInstance().where(Note.class).findAll();
         String root = Environment.getExternalStorageDirectory().toString();

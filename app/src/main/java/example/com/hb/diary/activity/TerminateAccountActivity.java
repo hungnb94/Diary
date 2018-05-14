@@ -55,6 +55,9 @@ public class TerminateAccountActivity extends BaseActivity {
         rootLayout.setBackgroundColor(app.getBackgroundColor());
     }
 
+    /**
+     * Need login before terminate account
+     */
     private void loginFirst() {
         App app = (App) getApplication();
         FirebaseAuth auth = FirebaseAuth.getInstance();
@@ -99,7 +102,7 @@ public class TerminateAccountActivity extends BaseActivity {
                 FragmentTransaction ft = fm.beginTransaction();
                 Fragment f;
                 if (task.isSuccessful()){
-                    resetSaveAccount();
+                    deleteSavedAccount();
                     f = new AlertSuccessFragment();
                     Bundle bundle = new Bundle();
                     bundle.putString(AlertSuccessFragment.ARG_TITLE, getResources().getString(R.string.account_terminated));
@@ -125,7 +128,10 @@ public class TerminateAccountActivity extends BaseActivity {
         });
     }
 
-    private void resetSaveAccount() {
+    /**
+     * Delete saved account
+     */
+    private void deleteSavedAccount() {
         MySharedPreference pre = new MySharedPreference(this);
         pre.remove(MySharedPreference.EMAIL_LOGIN);
         pre.remove(MySharedPreference.PASSWORD);

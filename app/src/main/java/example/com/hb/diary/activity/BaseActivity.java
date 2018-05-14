@@ -55,6 +55,11 @@ public class BaseActivity extends AppCompatActivity {
         app.activityPause();
     }
 
+    /**
+     * Handle uncaught exception
+     * @param paramThread
+     * @param paramThrowable
+     */
     public void myHandaling(Thread paramThread, Throwable paramThrowable) {
         Log.e("Alert", "Lets See if it Works !!!" + "ParamThread:::" + paramThread + "ParamThrowable:::" + paramThrowable);
         paramThrowable.printStackTrace();

@@ -46,7 +46,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import example.com.hb.diary.App;
 import example.com.hb.diary.R;
-import example.com.hb.diary.Utils.MyFirebaseUtil;
+import example.com.hb.diary.Utils.MyFirebase;
 import example.com.hb.diary.adapter.NoteAdapter;
 import example.com.hb.diary.model.Note;
 import io.realm.Realm;
@@ -126,10 +126,10 @@ public class MainActivity extends BaseActivity
         }
         if (auth.getCurrentUser() == null) return;
         allNotes = realm.where(Note.class).findAll();
-        MyFirebaseUtil myFirebase = new MyFirebaseUtil(this);
+        MyFirebase myFirebase = new MyFirebase(this);
         myFirebase.setRealmNotes(allNotes);
         progressBar.setVisibility(View.VISIBLE);
-        myFirebase.execute();
+        myFirebase.sync();
     }
 
     @Override
@@ -210,6 +210,9 @@ public class MainActivity extends BaseActivity
         refreshListView();
     }
 
+    /**
+     * Adding new note
+     */
     private void addNote() {
         Intent intent = new Intent(this, AddingNoteActivity.class);
         startActivityForResult(intent, REQUEST_CODE_ADD_NOTE);
@@ -341,12 +344,15 @@ public class MainActivity extends BaseActivity
         startActivity(intent);
     }
 
+    /**
+     * Hide progressbar
+     */
     public void hideProgressBar() {
         progressBar.setVisibility(View.INVISIBLE);
     }
 
     /**
-     * Open AccountGuideActivity
+     * Click on account
      */
     private void openAccountActivity() {
         if (auth.getCurrentUser() == null) {
@@ -359,7 +365,7 @@ public class MainActivity extends BaseActivity
     }
 
     /**
-     * Show search dialog with edittext and button
+     * Show search dialog
      */
     private void showSearchDialog() {
         // khởi tạo dialog

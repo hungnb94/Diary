@@ -29,7 +29,7 @@ import butterknife.ButterKnife;
 import example.com.hb.diary.App;
 import example.com.hb.diary.R;
 import example.com.hb.diary.Utils.LineEditText;
-import example.com.hb.diary.Utils.MyFirebaseUtil;
+import example.com.hb.diary.Utils.MyFirebase;
 import example.com.hb.diary.Utils.ShareIntentUtils;
 import example.com.hb.diary.dialog.AlertEmptyNoteDialog;
 import example.com.hb.diary.dialog.SaveChangeDialog;
@@ -190,12 +190,15 @@ public class AddingNoteActivity extends BaseActivity implements View.OnClickList
     private void turnEmoji() {
     }
 
+    /**
+     * Sharing a note
+     */
     private void shareNote() {
         ShareIntentUtils.shareNote(this, note);
     }
 
     /**
-     * Show dialog ask delete or not?
+     * Delete a note
      */
     private void deleteNote() {
         final Dialog dialog = new Dialog(this);
@@ -213,7 +216,7 @@ public class AddingNoteActivity extends BaseActivity implements View.OnClickList
             @Override
             public void onClick(View v) {
                 String noteId = note.getId();
-                MyFirebaseUtil myFirebase = new MyFirebaseUtil(AddingNoteActivity.this);
+                MyFirebase myFirebase = new MyFirebase(AddingNoteActivity.this);
                 myFirebase.deleteOnFirebase(noteId);
                 deleteOnRealm();
                 dialog.dismiss();
@@ -224,6 +227,9 @@ public class AddingNoteActivity extends BaseActivity implements View.OnClickList
         dialog.show();
     }
 
+    /**
+     * Delete note on realm database
+     */
     public void deleteOnRealm() {
         realm.executeTransaction(new Realm.Transaction() {
             @Override
@@ -269,7 +275,7 @@ public class AddingNoteActivity extends BaseActivity implements View.OnClickList
                 realm.copyToRealmOrUpdate(note); // using insert API
             }
         });
-        MyFirebaseUtil firebaseUtil = new MyFirebaseUtil(this);
+        MyFirebase firebaseUtil = new MyFirebase(this);
         firebaseUtil.saveNoteToFirebase(note);
         tvSaving.setVisibility(View.VISIBLE);
         new Handler().postDelayed(new Runnable() {

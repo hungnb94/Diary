@@ -62,9 +62,6 @@
             android:name=".activity.ReminderActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activity.RateReviewActivity"
-            android:screenOrientation="portrait" />
-        <activity
             android:name=".activity.SignUpActivity"
             android:screenOrientation="portrait" />
         <activity

@@ -121,6 +121,9 @@ public class LogInActivity extends BaseActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    /**
+     * Open reset password activity
+     */
     private void resetPassword() {
         Intent intent = new Intent(this, ResetPasswordActivity.class);
         startActivity(intent);
@@ -161,6 +164,10 @@ public class LogInActivity extends BaseActivity {
         }
     }
 
+    /**
+     * Update email
+     * @param account
+     */
     private void updateUI(GoogleSignInAccount account) {
         edtEmail.setText(account.getEmail());
     }
@@ -239,7 +246,7 @@ public class LogInActivity extends BaseActivity {
                             bundle.putString(AlertFailedFragment.ARG_MESSAGE,
                                     getResources().getString(R.string.account_does_not_exists));
                         } else {
-                            //Other
+                            //Some error occur
                             bundle.putString(AlertFailedFragment.ARG_TITLE,
                                     getResources().getString(R.string.some_error_occur));
                             bundle.putString(AlertFailedFragment.ARG_MESSAGE,

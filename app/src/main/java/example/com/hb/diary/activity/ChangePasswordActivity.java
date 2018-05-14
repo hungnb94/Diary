@@ -43,6 +43,9 @@ public class ChangePasswordActivity extends BaseActivity {
         loginFirst();
     }
 
+    /**
+     * Login to firebase auth before change password
+     */
     private void loginFirst() {
         App app = (App) getApplication();
         FirebaseAuth auth = FirebaseAuth.getInstance();
@@ -127,6 +130,10 @@ public class ChangePasswordActivity extends BaseActivity {
         });
     }
 
+    /**
+     * Save new password
+     * @param password: new password
+     */
     private void saveNewPassword(String password) {
         MySharedPreference pre = new MySharedPreference(this);
         pre.putString(MySharedPreference.PASSWORD, password);

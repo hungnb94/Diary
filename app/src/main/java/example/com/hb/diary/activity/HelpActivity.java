@@ -33,6 +33,9 @@ public class HelpActivity extends BaseActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
+    /**
+     * Show web view
+     */
     private void showHelp() {
         webView = (WebView) findViewById(R.id.webview);
         webView.setWebViewClient(new MyBrowser());
@@ -43,6 +46,9 @@ public class HelpActivity extends BaseActivity {
         webView.loadUrl(HELP_URL);
     }
 
+    /**
+     * Alert to user when connection if off
+     */
     private void alertOffline() {
         FragmentManager fm = getSupportFragmentManager();
         FragmentTransaction ft = fm.beginTransaction();

@@ -23,15 +23,16 @@ import example.com.hb.diary.model.Note;
 import io.realm.Realm;
 import io.realm.RealmResults;
 
-public class MyFirebaseUtil extends AsyncTask<Void, Void, Void>{
-    String TAG = MyFirebaseUtil.class.getSimpleName();
-    Activity activity;
-    private static FirebaseDatabase database;
-    RealmResults<Note> realmNotes;
-    DatabaseReference myRef;
-    String userUid;
+public class MyFirebase {
+    private final String TAG = MyFirebase.class.getSimpleName();
 
-    public MyFirebaseUtil(Activity activity) {
+    private Activity activity;
+    private static FirebaseDatabase database;
+    private RealmResults<Note> realmNotes;
+    private DatabaseReference myRef;
+    private String userUid;
+
+    public MyFirebase(Activity activity) {
         this.activity = activity;
         App app = (App) activity.getApplication();
         userUid = app.getUuid();
@@ -72,34 +73,8 @@ public class MyFirebaseUtil extends AsyncTask<Void, Void, Void>{
     }
 
     public void sync() {
-        if (userUid == null) return;
-        modifyFirebaseState();
-        String childRef = Note.getChild(userUid);
-        myRef = database.getReference().child(childRef);
-        final Realm realm = Realm.getDefaultInstance();
-        myRef.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                ArrayList realmList = new ArrayList();
-                realmList.addAll(Arrays.asList(realmNotes.toArray()));
-                ArrayList<Note> firebaseList = new ArrayList();
-                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    Log.e(TAG, "Snapshot: " + snapshot.toString());
-                    Note note = new Note();
-                    note.setId(snapshot.getKey());
-                    note.setDate((Long) snapshot.child(Note.FIELD_DATE).getValue());
-                    note.setTitle((String) snapshot.child(Note.FIELD_TITLE).getValue());
-                    note.setContent((String) snapshot.child(Note.FIELD_CONTENT).getValue());
-                    note.setUpdateTime((Long) snapshot.child(Note.FIELD_UPDATE_TIME).getValue());
-                    firebaseList.add(note);
-                }
-                syncTwoList(firebaseList, realmList);
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-            }
-        });
+        SyncTask task = new SyncTask();
+        task.execute();
     }
 
     /**
@@ -184,23 +159,53 @@ public class MyFirebaseUtil extends AsyncTask<Void, Void, Void>{
         myRef.updateChildren(addValue);
     }
 
-    @Override
-    protected Void doInBackground(Void... voids) {
-        sync();
-        return null;
-    }
-
-    @Override
-    protected void onPostExecute(Void aVoid) {
-        super.onPostExecute(aVoid);
-        if (activity instanceof MainActivity) {
-            MainActivity mainActivity = (MainActivity) activity;
-            mainActivity.hideProgressBar();
-            mainActivity.refreshListView();
-        }
-    }
-
     public void setRealmNotes(RealmResults<Note> realmNotes) {
         this.realmNotes = realmNotes;
+    }
+
+    class SyncTask extends AsyncTask<Void, Void, Void> {
+
+        @Override
+        protected Void doInBackground(Void... voids) {
+            if (userUid == null) return null;
+            modifyFirebaseState();
+            String childRef = Note.getChild(userUid);
+            myRef = database.getReference().child(childRef);
+            final Realm realm = Realm.getDefaultInstance();
+            myRef.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    ArrayList realmList = new ArrayList();
+                    realmList.addAll(Arrays.asList(realmNotes.toArray()));
+                    ArrayList<Note> firebaseList = new ArrayList();
+                    for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                        Log.e(TAG, "Snapshot: " + snapshot.toString());
+                        Note note = new Note();
+                        note.setId(snapshot.getKey());
+                        note.setDate((Long) snapshot.child(Note.FIELD_DATE).getValue());
+                        note.setTitle((String) snapshot.child(Note.FIELD_TITLE).getValue());
+                        note.setContent((String) snapshot.child(Note.FIELD_CONTENT).getValue());
+                        note.setUpdateTime((Long) snapshot.child(Note.FIELD_UPDATE_TIME).getValue());
+                        firebaseList.add(note);
+                    }
+                    syncTwoList(firebaseList, realmList);
+                }
+
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+                }
+            });
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            super.onPostExecute(aVoid);
+            if (activity instanceof MainActivity) {
+                MainActivity mainActivity = (MainActivity) activity;
+                mainActivity.hideProgressBar();
+                mainActivity.refreshListView();
+            }
+        }
     }
 }

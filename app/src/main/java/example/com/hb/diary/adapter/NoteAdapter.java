@@ -140,11 +140,19 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder>
         }
     }
 
+    /**
+     * Show dialog
+     * @param position
+     */
     private void showOption(int position) {
         SelectNoteDialog dialog = new SelectNoteDialog(context, list.get(position));
         dialog.show();
     }
 
+    /**
+     * Edit a note
+     * @param position: position in list
+     */
     private void editNote(int position) {
         Intent intent = new Intent(context, AddingNoteActivity.class);
         Bundle bundle = new Bundle();

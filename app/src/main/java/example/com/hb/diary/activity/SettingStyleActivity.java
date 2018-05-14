@@ -330,6 +330,10 @@ public class SettingStyleActivity extends BaseActivity implements ColorPickerDia
     public void onDialogDismissed(int dialogId) {
     }
 
+    /**
+     * Save background color setting
+     * @param backgroundColor
+     */
     public void saveBackgroundColor(int backgroundColor) {
         if (pre == null) pre = new MySharedPreference(SettingStyleActivity.this);
         pre.putInt(MySharedPreference.BACKGROUND_COLOR, backgroundColor);
@@ -337,6 +341,10 @@ public class SettingStyleActivity extends BaseActivity implements ColorPickerDia
         app.setBackgroundColor(backgroundColor);
     }
 
+    /**
+     * Save text color setting
+     * @param textColor
+     */
     public void saveTextColor(int textColor) {
         if (pre == null) pre = new MySharedPreference(SettingStyleActivity.this);
         pre.putInt(MySharedPreference.TEXT_COLOR, textColor);
@@ -344,6 +352,10 @@ public class SettingStyleActivity extends BaseActivity implements ColorPickerDia
         app.setTextColor(textColor);
     }
 
+    /**
+     * Save text size setting
+     * @param textSize
+     */
     public void saveTextSize(int textSize) {
         if (pre == null) pre = new MySharedPreference(SettingStyleActivity.this);
         pre.putInt(MySharedPreference.TEXT_SIZE, textSize);
