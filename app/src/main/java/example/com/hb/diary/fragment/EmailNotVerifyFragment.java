@@ -14,12 +14,6 @@ import example.com.hb.diary.R;
 public class EmailNotVerifyFragment extends Fragment {
     @BindView(R.id.rootLayout)
     View rootLayout;
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
 
     public EmailNotVerifyFragment() {
         // Required empty public constructor

@@ -23,10 +23,14 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import example.com.hb.diary.App;
 import example.com.hb.diary.R;
-import example.com.hb.diary.Utils.MySharedPreference;
+import example.com.hb.diary.preference.MySharedPreference;
 import example.com.hb.diary.fragment.AlertFailedFragment;
 import example.com.hb.diary.fragment.AlertSuccessFragment;
 import example.com.hb.diary.fragment.ProgressFragment;
+
+import static example.com.hb.diary.utils.Constant.ARG_CONTENT;
+import static example.com.hb.diary.utils.Constant.ARG_MESSAGE;
+import static example.com.hb.diary.utils.Constant.ARG_TITLE;
 
 public class TerminateAccountActivity extends BaseActivity {
     @BindView(R.id.rootLayout)
@@ -56,7 +60,7 @@ public class TerminateAccountActivity extends BaseActivity {
     }
 
     /**
-     * Need login before terminate account
+     * Needed login before terminate account
      */
     private void loginFirst() {
         App app = (App) getApplication();
@@ -105,10 +109,10 @@ public class TerminateAccountActivity extends BaseActivity {
                     deleteSavedAccount();
                     f = new AlertSuccessFragment();
                     Bundle bundle = new Bundle();
-                    bundle.putString(AlertSuccessFragment.ARG_TITLE, getResources().getString(R.string.account_terminated));
+                    bundle.putString(ARG_TITLE, getResources().getString(R.string.account_terminated));
                     String content = getResources().getString(R.string.account_deleted);
                     content +="\n\n" + getResources().getString(R.string.account_deleted_2);
-                    bundle.putString(AlertSuccessFragment.ARG_CONTENT, content);
+                    bundle.putString(ARG_CONTENT, content);
                     f.setArguments(bundle);
                     ft.replace(android.R.id.content, f);
                     ft.commit();
@@ -116,8 +120,8 @@ public class TerminateAccountActivity extends BaseActivity {
                     task.getException().printStackTrace();
                     f = new AlertFailedFragment();
                     Bundle bundle = new Bundle();
-                    bundle.putString(AlertFailedFragment.ARG_TITLE, getResources().getString(R.string.error));
-                    bundle.putString(AlertFailedFragment.ARG_MESSAGE, getResources().getString(R.string.some_error_occur)
+                    bundle.putString(ARG_TITLE, getResources().getString(R.string.error));
+                    bundle.putString(ARG_MESSAGE, getResources().getString(R.string.some_error_occur)
                             +": " + task.getException().getMessage());
                     f.setArguments(bundle);
                     ft.replace(android.R.id.content, f);

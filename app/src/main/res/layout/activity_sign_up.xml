@@ -156,7 +156,6 @@
             android:layout_weight="0.5">
 
             <TextView
-                android:id="@+id/tvReadTermService"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -177,7 +176,6 @@
                 android:id="@+id/btnCreateAccount"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/btn_save_height"
-                android:layout_alignParentBottom="true"
                 android:alpha="0.8"
                 android:background="@color/brownAccount"
                 android:text="@string/create_account"

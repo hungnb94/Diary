@@ -1,4 +1,4 @@
-package example.com.hb.diary.Utils;
+package example.com.hb.diary.utils;
 
 import android.content.Context;
 import android.content.Intent;
@@ -15,7 +15,7 @@ import example.com.hb.diary.model.Note;
 
 public class ShareIntentUtils {
     public static void shareNote(Context context, Note note) {
-        SimpleDateFormat format = new SimpleDateFormat(Config.DATE_FORMAT);
+        SimpleDateFormat format = new SimpleDateFormat(Constant.DATE_FORMAT);
         String sDate = format.format(new Date(note.getDate()));
         String title = context.getResources().getString(R.string.diary_note)
                 + ", " + sDate

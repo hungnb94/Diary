@@ -1,4 +1,4 @@
-package example.com.hb.diary.Utils;
+package example.com.hb.diary.utils;
 
 import android.content.Context;
 import android.net.ConnectivityManager;

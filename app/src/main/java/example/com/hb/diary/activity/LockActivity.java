@@ -14,12 +14,10 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import example.com.hb.diary.App;
 import example.com.hb.diary.R;
-import example.com.hb.diary.Utils.MySharedPreference;
+import example.com.hb.diary.preference.MySharedPreference;
 
 public class LockActivity extends AppCompatActivity {
-    String TAG = LockActivity.class.getSimpleName();
-    public static final String IS_START_APP = "startApp";
-    boolean isStart;
+    private boolean isStart;
 
     @BindView(R.id.tvTitle)
     TextView tvTitle;
@@ -34,12 +32,7 @@ public class LockActivity extends AppCompatActivity {
     @BindView(R.id.rootLayout)
     View rootLayout;
 
-    MySharedPreference sharedPreference;
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-    }
+    private MySharedPreference sharedPreference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,11 +54,7 @@ public class LockActivity extends AppCompatActivity {
         tvGuide.setTypeface(typeface);
 
         Bundle bundle = getIntent().getExtras();
-        if (bundle==null){
-            isStart=false;
-        } else {
-            isStart=true;
-        }
+        isStart = bundle != null;
     }
 
     @Override

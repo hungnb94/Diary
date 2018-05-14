@@ -1,4 +1,4 @@
-package example.com.hb.diary.Utils;
+package example.com.hb.diary.utils;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -15,10 +15,8 @@ import example.com.hb.diary.R;
  */
 
 public class LineEditText extends EditText {
-    private int lineColor = Color.BLACK;
-
     private Paint mPaint = new Paint();
-    boolean isUnderline = true;
+    private boolean isUnderline = true;
 
     public LineEditText(Context context) {
         super(context);
@@ -51,6 +49,7 @@ public class LineEditText extends EditText {
     private void initPaint() {
         mPaint.setStyle(Paint.Style.STROKE);
         if (isUnderline) {
+            int lineColor = Color.BLACK;
             mPaint.setColor(lineColor);//(0x80000000);
         } else {
             mPaint.setColor(Color.TRANSPARENT);

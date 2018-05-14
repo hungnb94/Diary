@@ -32,12 +32,14 @@ import butterknife.OnClick;
 import butterknife.OnFocusChange;
 import example.com.hb.diary.App;
 import example.com.hb.diary.R;
-import example.com.hb.diary.Utils.MySharedPreference;
 import example.com.hb.diary.fragment.PasscodeChangeFragment;
+import example.com.hb.diary.preference.MySharedPreference;
+import example.com.hb.diary.utils.Constant;
+
+import static example.com.hb.diary.utils.Constant.RC_SIGN_IN;
 
 public class PasswordActivity extends BaseActivity {
-    private static final String TAG = PasswordActivity.class.getSimpleName();
-    private static final int RC_SIGN_IN = 94;
+    private final String TAG = PasswordActivity.class.getSimpleName();
 
     @BindView(R.id.layoutPassword)
     LinearLayout rootLayout;
@@ -51,7 +53,7 @@ public class PasswordActivity extends BaseActivity {
     LinearLayout llDeactive;
     @BindView(R.id.btnDeactive)
     Button btnDeactive;
-    boolean focusEmail=true;
+    private boolean focusEmail=true;
 
     private MySharedPreference sharedPreference;
     private GoogleSignInClient mGoogleSignInClient;
@@ -84,7 +86,7 @@ public class PasswordActivity extends BaseActivity {
 
     private void initView() {
         ButterKnife.bind(this);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle(getResources().getString(R.string.codelock_setup));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -185,7 +187,7 @@ public class PasswordActivity extends BaseActivity {
         FragmentTransaction ft = fm.beginTransaction();
         Fragment f = new PasscodeChangeFragment();
         Bundle bundle = new Bundle();
-        bundle.putString(PasscodeChangeFragment.MESSAGE, getResources().getString(R.string.codelock_activated));
+        bundle.putString(Constant.ARG_MESSAGE, getResources().getString(R.string.codelock_activated));
         f.setArguments(bundle);
         ft.replace(android.R.id.content, f);
         ft.commit();
@@ -201,7 +203,7 @@ public class PasswordActivity extends BaseActivity {
         FragmentTransaction ft = fm.beginTransaction();
         Fragment f = new PasscodeChangeFragment();
         Bundle bundle = new Bundle();
-        bundle.putString(PasscodeChangeFragment.MESSAGE, getResources().getString(R.string.codelock_deactivated));
+        bundle.putString(Constant.ARG_MESSAGE, getResources().getString(R.string.codelock_deactivated));
         f.setArguments(bundle);
         ft.replace(android.R.id.content, f);
         ft.commit();
@@ -221,7 +223,7 @@ public class PasswordActivity extends BaseActivity {
         Log.e(TAG, "Get account google");
         AccountManager manager = AccountManager.get(this);
         Account[] accounts = manager.getAccountsByType("com.google");
-        List<String> possibleEmails = new LinkedList<String>();
+        List<String> possibleEmails = new LinkedList<>();
 
         for (Account account : accounts) {
             // TODO: Check possibleEmail against an email regex or treat

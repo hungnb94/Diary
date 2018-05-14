@@ -75,7 +75,7 @@ public class Note extends RealmObject implements Serializable {
     public Note() {
     }
 
-    public Map<String, Object> toMap(){
+    public Map<String, Object> toMap() {
         HashMap<String, Object> result = new HashMap<>();
         result.put(FIELD_DATE, date);
         result.put(FIELD_TITLE, title);
@@ -88,4 +88,5 @@ public class Note extends RealmObject implements Serializable {
     public static String getChild(String userUid) {
         return "users/" + userUid + "/notes";
     }
+
 }

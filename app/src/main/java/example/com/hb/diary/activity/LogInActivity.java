@@ -36,16 +36,19 @@ import butterknife.OnClick;
 import butterknife.OnFocusChange;
 import example.com.hb.diary.App;
 import example.com.hb.diary.R;
-import example.com.hb.diary.Utils.Config;
-import example.com.hb.diary.Utils.InternetConnectionUtil;
-import example.com.hb.diary.Utils.MySharedPreference;
+import example.com.hb.diary.utils.Constant;
+import example.com.hb.diary.utils.InternetConnectionUtil;
+import example.com.hb.diary.preference.MySharedPreference;
 import example.com.hb.diary.fragment.AlertFailedFragment;
 import example.com.hb.diary.fragment.AlertSuccessFragment;
 import example.com.hb.diary.fragment.OfflineFragment;
 
+import static example.com.hb.diary.utils.Constant.ARG_MESSAGE;
+import static example.com.hb.diary.utils.Constant.ARG_TITLE;
+import static example.com.hb.diary.utils.Constant.RC_SIGN_IN;
+
 public class LogInActivity extends BaseActivity {
-    private static final String TAG = LogInActivity.class.getSimpleName();
-    private static final int RC_SIGN_IN = 50;
+    private final String TAG = LogInActivity.class.getSimpleName();
 
     @BindView(R.id.rootLayout)
     RelativeLayout rootLayout;
@@ -58,10 +61,10 @@ public class LogInActivity extends BaseActivity {
     @BindView(R.id.progressBar)
     ProgressBar progressBar;
 
-    MySharedPreference preference;
-    int emailClickFirstTime = 0;
+    private MySharedPreference preference;
+    private int emailClickFirstTime = 0;
     private GoogleSignInClient mGoogleSignInClient;
-    FirebaseAuth auth;
+    private FirebaseAuth auth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,7 +76,7 @@ public class LogInActivity extends BaseActivity {
     }
 
     private void initView() {
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         ButterKnife.bind(this);
@@ -184,7 +187,7 @@ public class LogInActivity extends BaseActivity {
             edtPassword.setError(getResources().getString(R.string.mandatory));
             return;
         }
-        if (password.length() < Config.MIN_PASSWORD_LENG) {
+        if (password.length() < Constant.MIN_PASSWORD_LENG) {
             edtPassword.setError(getResources().getString(R.string.too_short));
             return;
         }
@@ -235,22 +238,22 @@ public class LogInActivity extends BaseActivity {
                         Bundle bundle = new Bundle();
                         if (e instanceof FirebaseAuthInvalidCredentialsException) {
                             //Invalid password
-                            bundle.putString(AlertFailedFragment.ARG_TITLE,
+                            bundle.putString(ARG_TITLE,
                                     getResources().getString(R.string.invalid_login));
-                            bundle.putString(AlertFailedFragment.ARG_MESSAGE,
+                            bundle.putString(ARG_MESSAGE,
                                     getResources().getString(R.string.forgot_account_password));
                         } else if (e instanceof FirebaseAuthInvalidUserException) {
                             //Invalid email
-                            bundle.putString(AlertFailedFragment.ARG_TITLE,
+                            bundle.putString(ARG_TITLE,
                                     getResources().getString(R.string.account_not_found));
-                            bundle.putString(AlertFailedFragment.ARG_MESSAGE,
+                            bundle.putString(ARG_MESSAGE,
                                     getResources().getString(R.string.account_does_not_exists));
                         } else {
                             //Some error occur
-                            bundle.putString(AlertFailedFragment.ARG_TITLE,
+                            bundle.putString(ARG_TITLE,
                                     getResources().getString(R.string.some_error_occur));
-                            bundle.putString(AlertFailedFragment.ARG_MESSAGE,
-                                    e.getMessage().toString());
+                            bundle.putString(ARG_MESSAGE,
+                                    e.getMessage());
                         }
                         FragmentManager fm = getSupportFragmentManager();
                         FragmentTransaction ft = fm.beginTransaction();

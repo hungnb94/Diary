@@ -14,19 +14,21 @@ import io.realm.Realm;
  */
 
 public class App extends Application {
-    public final int TIME_TO_LOCK = 8000;
-    String TAG = "App";
-    Date pauseTime = Calendar.getInstance().getTime();
-    int nStart = 0;
-    int nPause = 0;
-    int backgroundColor = Color.GREEN;
+    private final int TIME_TO_LOCK = 8000;
+    private final String TAG = "App";
+    private Date pauseTime = Calendar.getInstance().getTime();
+    private int nStart = 0;
+    private int nPause = 0;
+    private int backgroundColor = Color.GREEN;
     int textColor = Color.GREEN;
-    float textSize = 0;
-    boolean isUnderline=true;
-    int dateFormat = 1;
-    String code;
-    String email, password, uuid;
-    boolean syncWifiOnly;
+    private float textSize = 0;
+    private boolean isUnderline=true;
+    private int dateFormat = 1;
+    private String code;
+    private String email;
+    private String password;
+    private String uuid;
+    private boolean syncWifiOnly;
 
     public String getEmail() {
         return email;

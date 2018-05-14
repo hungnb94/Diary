@@ -17,12 +17,15 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import example.com.hb.diary.App;
 import example.com.hb.diary.R;
-import example.com.hb.diary.Utils.Config;
+import example.com.hb.diary.utils.Constant;
 import example.com.hb.diary.activity.AddingNoteActivity;
 import example.com.hb.diary.activity.MainActivity;
 import example.com.hb.diary.dialog.SelectNoteDialog;
 import example.com.hb.diary.model.Note;
 import io.realm.RealmResults;
+
+import static example.com.hb.diary.utils.Constant.IS_EDIT;
+import static example.com.hb.diary.utils.Constant.REQUEST_CODE_EDIT_NOTE;
 
 /**
  * Created by HP ProBook on 4/19/2018.
@@ -30,9 +33,9 @@ import io.realm.RealmResults;
 
 public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder>
         implements View.OnClickListener {
-    MainActivity context;
+    private MainActivity context;
     String TAG = "NoteAdapter";
-    RealmResults<Note> list;
+    private RealmResults<Note> list;
 
     public NoteAdapter(MainActivity context, RealmResults<Note> list) {
         this.context = context;
@@ -48,7 +51,7 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder>
 
     @Override
     public void onBindViewHolder(NoteAdapter.ViewHolder holder, final int position) {
-        App app = (App) context.getApplication();
+        final App app = (App) context.getApplication();
         int color = app.getTextColor();
         int dateFormatType = app.getDateFormatType();
         holder.tvTitle.setTextColor(color);
@@ -56,14 +59,19 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder>
         Note note = list.get(position);
         Date date = new Date(note.getDate());
         SimpleDateFormat format;
-        if (dateFormatType == 2) {
-            format = new SimpleDateFormat(Config.ITEM_DATE_FORMAT_2);
-        } else if (dateFormatType == 3) {
-            format = new SimpleDateFormat(Config.ITEM_DATE_FORMAT_3);
-        } else if (dateFormatType == 4) {
-            format = new SimpleDateFormat(Config.ITEM_DATE_FORMAT_4);
-        } else {
-            format = new SimpleDateFormat(Config.ITEM_DATE_FORMAT_1);
+        switch (dateFormatType) {
+            case 2:
+                format = new SimpleDateFormat(Constant.ITEM_DATE_FORMAT_2);
+                break;
+            case 3:
+                format = new SimpleDateFormat(Constant.ITEM_DATE_FORMAT_3);
+                break;
+            case 4:
+                format = new SimpleDateFormat(Constant.ITEM_DATE_FORMAT_4);
+                break;
+            default:
+                format = new SimpleDateFormat(Constant.ITEM_DATE_FORMAT_1);
+                break;
         }
         if (date != null) {
             String strDate = format.format(date);
@@ -95,7 +103,7 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder>
                 return false;
             }
         });
-        //Ẩn đường kẻ ngăn cách giữa 2 view
+        //Hide line between two item
         if (position == 0) holder.vSeperator.setVisibility(View.GONE);
     }
 
@@ -108,16 +116,12 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder>
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.tvView:
-                viewNote();
                 break;
             case R.id.tvDelete:
                 break;
             case R.id.tvShare:
                 break;
         }
-    }
-
-    private void viewNote() {
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
@@ -134,7 +138,7 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder>
         @BindView(R.id.vSeperator)
         View vSeperator;
 
-        public ViewHolder(View itemView) {
+        ViewHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
         }
@@ -162,8 +166,8 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder>
         bundle.putString(Note.FIELD_TITLE, note.getTitle());
         bundle.putString(Note.FIELD_CONTENT, note.getContent());
         bundle.putLong(Note.FIELD_UPDATE_TIME, note.getUpdateTime());
-        bundle.putBoolean(AddingNoteActivity.IS_EDIT, true);
+        bundle.putBoolean(IS_EDIT, true);
         intent.putExtras(bundle);
-        context.startActivityForResult(intent, MainActivity.REQUEST_CODE_EDIT_NOTE);
+        context.startActivityForResult(intent, REQUEST_CODE_EDIT_NOTE);
     }
 }

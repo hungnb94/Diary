@@ -18,8 +18,8 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import example.com.hb.diary.App;
 import example.com.hb.diary.R;
-import example.com.hb.diary.Utils.InternetConnectionUtil;
-import example.com.hb.diary.Utils.MySharedPreference;
+import example.com.hb.diary.utils.InternetConnectionUtil;
+import example.com.hb.diary.preference.MySharedPreference;
 
 public class MyAccountActivity extends BaseActivity {
     @BindView(R.id.rootLayout)
@@ -34,7 +34,7 @@ public class MyAccountActivity extends BaseActivity {
     TextView textView;
     @BindView(R.id.checkbox)
     CheckBox checkBox;
-    boolean defaultCheck;   //Giá trị cài đặt đồng bộ wifi
+    private boolean defaultCheck;   //Value for setting sync only by wifi
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,7 +44,7 @@ public class MyAccountActivity extends BaseActivity {
     }
 
     private void initView() {
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle(getResources().getString(R.string.account));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);

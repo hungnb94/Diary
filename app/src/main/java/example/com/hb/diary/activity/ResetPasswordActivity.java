@@ -22,6 +22,11 @@ import example.com.hb.diary.fragment.AlertFailedFragment;
 import example.com.hb.diary.fragment.AlertSuccessFragment;
 import example.com.hb.diary.fragment.ProgressFragment;
 
+import static example.com.hb.diary.utils.Constant.ARG_CONTENT;
+import static example.com.hb.diary.utils.Constant.ARG_MESSAGE;
+import static example.com.hb.diary.utils.Constant.ARG_SMALL_TITLE;
+import static example.com.hb.diary.utils.Constant.ARG_TITLE;
+
 public class ResetPasswordActivity extends BaseActivity {
     @BindView(R.id.rootLayout)
     View rootLayout;
@@ -62,8 +67,8 @@ public class ResetPasswordActivity extends BaseActivity {
                 if (task.isSuccessful()){
                     f = new AlertSuccessFragment();
                     Bundle bundle = new Bundle();
-                    bundle.putString(AlertSuccessFragment.ARG_TITLE, getResources().getString(R.string.reset_password));
-                    bundle.putString(AlertSuccessFragment.ARG_CONTENT,
+                    bundle.putString(ARG_TITLE, getResources().getString(R.string.reset_password));
+                    bundle.putString(ARG_CONTENT,
                             getResources().getString(R.string.reset_password_guide));
                     f.setArguments(bundle);
                     ft.replace(android.R.id.content, f);
@@ -72,9 +77,9 @@ public class ResetPasswordActivity extends BaseActivity {
                     task.getException().printStackTrace();
                     f = new AlertFailedFragment();
                     Bundle bundle = new Bundle();
-                    bundle.putString(AlertFailedFragment.ARG_TITLE, getResources().getString(R.string.account_not_found));
-                    bundle.putString(AlertFailedFragment.ARG_SMALL_TITLE, email);
-                    bundle.putString(AlertFailedFragment.ARG_MESSAGE, getResources().getString(R.string.some_error_occur)
+                    bundle.putString(ARG_TITLE, getResources().getString(R.string.account_not_found));
+                    bundle.putString(ARG_SMALL_TITLE, email);
+                    bundle.putString(ARG_MESSAGE, getResources().getString(R.string.some_error_occur)
                             +": " + task.getException().getMessage());
                     f.setArguments(bundle);
                     ft.replace(android.R.id.content, f);

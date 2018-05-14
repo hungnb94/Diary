@@ -12,22 +12,25 @@ import android.widget.TextView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import example.com.hb.diary.R;
-import example.com.hb.diary.Utils.MyFirebase;
-import example.com.hb.diary.Utils.ShareIntentUtils;
+import example.com.hb.diary.utils.MyFirebase;
+import example.com.hb.diary.utils.ShareIntentUtils;
 import example.com.hb.diary.activity.AddingNoteActivity;
 import example.com.hb.diary.activity.MainActivity;
 import example.com.hb.diary.model.Note;
 import io.realm.Realm;
 import io.realm.RealmResults;
 
+import static example.com.hb.diary.utils.Constant.IS_EDIT;
+import static example.com.hb.diary.utils.Constant.REQUEST_CODE_EDIT_NOTE;
+
 /**
  * Created by HP ProBook on 4/20/2018.
  */
 
 public class SelectNoteDialog extends Dialog {
-    String TAG = SelectNoteDialog.class.getSimpleName();
-    MainActivity context;
-    Note note;
+    private final String TAG = SelectNoteDialog.class.getSimpleName();
+    private MainActivity context;
+    private Note note;
     @BindView(R.id.tvView)
     TextView tvView;
     @BindView(R.id.tvShare)
@@ -45,7 +48,7 @@ public class SelectNoteDialog extends Dialog {
         addListener();
     }
 
-    public void addListener() {
+    private void addListener() {
         tvView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -56,9 +59,9 @@ public class SelectNoteDialog extends Dialog {
                 bundle.putString(Note.FIELD_TITLE, note.getTitle());
                 bundle.putString(Note.FIELD_CONTENT, note.getContent());
                 bundle.putLong(Note.FIELD_UPDATE_TIME, note.getUpdateTime());
-                bundle.putBoolean(AddingNoteActivity.IS_EDIT, true);
+                bundle.putBoolean(IS_EDIT, true);
                 intent.putExtras(bundle);
-                context.startActivityForResult(intent, MainActivity.REQUEST_CODE_EDIT_NOTE);
+                context.startActivityForResult(intent, REQUEST_CODE_EDIT_NOTE);
                 dismiss();
             }
         });

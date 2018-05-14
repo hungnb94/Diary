@@ -1,4 +1,4 @@
-package example.com.hb.diary.Utils;
+package example.com.hb.diary.utils;
 
 import android.app.Activity;
 import android.os.AsyncTask;
@@ -175,8 +175,7 @@ public class MyFirebase {
             myRef.addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
-                    ArrayList realmList = new ArrayList();
-                    realmList.addAll(Arrays.asList(realmNotes.toArray()));
+                    ArrayList realmList = new ArrayList(Arrays.asList(realmNotes.toArray()));
                     ArrayList<Note> firebaseList = new ArrayList();
                     for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                         Log.e(TAG, "Snapshot: " + snapshot.toString());

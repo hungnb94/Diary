@@ -5,11 +5,11 @@
         android:id="@+id/action_add"
         android:icon="@drawable/checkmark_filled"
         android:title="@string/action_settings"
-        app:showAsAction="always" />
+        app:showAsAction="ifRoom" />
     <item
         android:icon="@drawable/menu_option"
         android:title="@string/action_settings"
-        app:showAsAction="always">
+        app:showAsAction="ifRoom">
 
         <menu>
             <item

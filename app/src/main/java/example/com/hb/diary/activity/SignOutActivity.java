@@ -13,11 +13,13 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import example.com.hb.diary.App;
 import example.com.hb.diary.R;
-import example.com.hb.diary.Utils.MySharedPreference;
+import example.com.hb.diary.preference.MySharedPreference;
 import example.com.hb.diary.fragment.AlertSuccessFragment;
 
-public class SignOutActivity extends BaseActivity {
+import static example.com.hb.diary.utils.Constant.ARG_CONTENT;
+import static example.com.hb.diary.utils.Constant.ARG_TITLE;
 
+public class SignOutActivity extends BaseActivity {
     @BindView(R.id.btnYes)
     Button btnYes;
     @BindView(R.id.btnNo)
@@ -42,8 +44,8 @@ public class SignOutActivity extends BaseActivity {
         FragmentTransaction ft = fm.beginTransaction();
         Bundle args = new Bundle();
         AlertSuccessFragment f = new AlertSuccessFragment();
-        args.putString(AlertSuccessFragment.ARG_TITLE, getResources().getString(R.string.disconnected));
-        args.putString(AlertSuccessFragment.ARG_CONTENT, getResources().getString(R.string.disconnected_guide));
+        args.putString(ARG_TITLE, getResources().getString(R.string.disconnected));
+        args.putString(ARG_CONTENT, getResources().getString(R.string.disconnected_guide));
         f.setArguments(args);
         ft.replace(android.R.id.content, f);
         ft.commit();

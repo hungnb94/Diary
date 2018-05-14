@@ -50,7 +50,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin_quite"
         android:gravity="center"
-        android:text="example@gmail.com"
+        android:text="@string/example_email"
         android:textColor="@color/colorWhite"
         android:textSize="@dimen/text_size_16" />
 

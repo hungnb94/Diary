@@ -16,15 +16,10 @@
         android:textStyle="bold" />
 
     <LinearLayout
+        android:gravity="end"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/action_bar_size">
-
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1">
-
-        </LinearLayout>
+        android:layout_height="@dimen/action_bar_size"
+        android:baselineAligned="false">
 
         <LinearLayout
             android:layout_width="wrap_content"

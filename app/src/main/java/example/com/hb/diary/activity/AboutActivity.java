@@ -16,7 +16,7 @@ import io.realm.RealmResults;
 
 public class AboutActivity extends BaseActivity {
     @BindView(R.id.rootLayout)
-    View rootLayout;
+       View rootLayout;
     @BindView(R.id.tvNumberNotes)
     TextView tvNumberNotes;
 

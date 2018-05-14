@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="@color/colorDefault"
     android:fitsSystemWindows="true"
-    tools:openDrawer="end">
+    tools:openDrawer="start">
 
     <include
         layout="@layout/app_bar_main"
@@ -28,7 +28,6 @@
             android:layout_height="match_parent">
 
             <LinearLayout
-                android:id="@+id/navHeaderMain"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical">

@@ -14,10 +14,11 @@ import butterknife.OnClick;
 import example.com.hb.diary.App;
 import example.com.hb.diary.R;
 
+import static example.com.hb.diary.utils.Constant.ARG_MESSAGE;
+import static example.com.hb.diary.utils.Constant.ARG_SMALL_TITLE;
+import static example.com.hb.diary.utils.Constant.ARG_TITLE;
+
 public class AlertFailedFragment extends Fragment {
-    public static final String ARG_TITLE = "param1";
-    public static final String ARG_SMALL_TITLE = "param3";
-    public static final String ARG_MESSAGE = "param2";
 
     @BindView(R.id.rootLayout)
     View rootLayout;
@@ -63,12 +64,12 @@ public class AlertFailedFragment extends Fragment {
     }
 
     @OnClick(R.id.ivClose)
-    void clickImageClose(View view){
+    void clickImageClose(View view) {
         closeFragment();
     }
 
     @OnClick(R.id.btnClose)
-    void clickButtonClose(View view){
+    void clickButtonClose(View view) {
         closeFragment();
     }
 

@@ -13,10 +13,12 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import example.com.hb.diary.App;
 import example.com.hb.diary.R;
-import example.com.hb.diary.Utils.MySharedPreference;
+import example.com.hb.diary.preference.MySharedPreference;
+import example.com.hb.diary.utils.Constant;
+
+import static example.com.hb.diary.utils.Constant.SPLASH_DISPLAY_LENGTH;
 
 public class SplashActivity extends AppCompatActivity {
-
     @BindView(R.id.layoutSplash)
     RelativeLayout rootLayout;
     @BindView(R.id.tvTitle)
@@ -26,10 +28,8 @@ public class SplashActivity extends AppCompatActivity {
     @BindView(R.id.tvVersion)
     TextView tvVersion;
 
-    Typeface typeface;
-    private int SPLASH_DISPLAY_LENGTH = 2000;
+    private Typeface typeface;
     private int backgroundColor;
-    private int textColor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +39,7 @@ public class SplashActivity extends AppCompatActivity {
         MySharedPreference preference = new MySharedPreference(this);
         backgroundColor = preference.getInt(MySharedPreference.BACKGROUND_COLOR,
                 getResources().getColor(R.color.colorDefault));
-        textColor = preference.getInt(MySharedPreference.TEXT_COLOR, Color.GREEN);
+        int textColor = preference.getInt(MySharedPreference.TEXT_COLOR, Color.GREEN);
         boolean isUnderline = preference.getBoolean(MySharedPreference.IS_UNDERLINE, true);
         int dateFormat = preference.getInt(MySharedPreference.DATE_FORMAT_TYPE, 1);
         boolean syncWifyOnly = preference.getBoolean(MySharedPreference.IS_SYNC_WIFI_ONLY, false);
@@ -68,21 +68,21 @@ public class SplashActivity extends AppCompatActivity {
     }
 
     /**
-     * Chuyen sang man hinh khoa de xu ly
+     * Go to LockActivity
      */
     private void goToLockActivity() {
         Intent intent = new Intent(this, LockActivity.class);
         Bundle bundle = new Bundle();
-        bundle.putBoolean(LockActivity.IS_START_APP, true);
+        bundle.putBoolean(Constant.IS_START_APP, true);
         intent.putExtras(bundle);
         startActivity(intent);
         finish();
     }
 
     /**
-     * Chuyển Activity sang MainActivity nếu:
-     * người dùng nhập mã code đúng
-     * hoặc người dùng chưa set code thì sẽ tự chuyển sau SPLASH_DISPLAY_LENGTH
+     * Open MainActivity
+     * if input code == code
+     * or code == null
      */
     private void goToMainActivity() {
         /* New Handler to start the Menu-Activity

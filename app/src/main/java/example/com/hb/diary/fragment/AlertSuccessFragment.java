@@ -15,10 +15,12 @@ import example.com.hb.diary.App;
 import example.com.hb.diary.R;
 import example.com.hb.diary.activity.MainActivity;
 
+import static example.com.hb.diary.utils.Constant.ARG_CONTENT;
+import static example.com.hb.diary.utils.Constant.ARG_TITLE;
+
 public class AlertSuccessFragment extends Fragment {
-    public static final String ARG_TITLE = "title";
-    public static final String ARG_CONTENT = "content";
-    String title, content;
+    private String title;
+    private String content;
 
     @BindView(R.id.rootLayout)
     View rootLayout;

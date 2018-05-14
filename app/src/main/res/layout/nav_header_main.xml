@@ -22,7 +22,7 @@
             android:id="@+id/imageView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="left"
+            android:layout_gravity="start"
             android:src="@drawable/user" />
 
         <LinearLayout
@@ -44,7 +44,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_medium"
-                android:text="hungnb94@gmail.com"
+                android:text="@string/example_email"
                 android:textColor="@color/colorWhite" />
         </LinearLayout>
     </LinearLayout>

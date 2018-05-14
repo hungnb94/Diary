@@ -28,22 +28,22 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import example.com.hb.diary.App;
 import example.com.hb.diary.R;
-import example.com.hb.diary.Utils.LineEditText;
-import example.com.hb.diary.Utils.MyFirebase;
-import example.com.hb.diary.Utils.ShareIntentUtils;
+import example.com.hb.diary.utils.LineEditText;
+import example.com.hb.diary.utils.MyFirebase;
+import example.com.hb.diary.utils.ShareIntentUtils;
 import example.com.hb.diary.dialog.AlertEmptyNoteDialog;
 import example.com.hb.diary.dialog.SaveChangeDialog;
 import example.com.hb.diary.model.Note;
 import io.realm.Realm;
 import io.realm.RealmResults;
 
-import static example.com.hb.diary.Utils.Config.DATE_FORMAT;
+import static example.com.hb.diary.utils.Constant.DATE_FORMAT;
+import static example.com.hb.diary.utils.Constant.IS_EDIT;
+import static example.com.hb.diary.utils.Constant.RESULT_DELETE;
 
 public class AddingNoteActivity extends BaseActivity implements View.OnClickListener {
-    private static final String TAG = AddingNoteActivity.class.getSimpleName();
-    public static final int RESULT_DELETE = 11;
-    public static final String IS_EDIT = "edit";
-    boolean isEdit = false;
+    private final String TAG = AddingNoteActivity.class.getSimpleName();
+    private boolean isEdit = false;
 
     @BindView(R.id.layoutAddingNote)
     RelativeLayout layoutAddingNote;
@@ -56,7 +56,7 @@ public class AddingNoteActivity extends BaseActivity implements View.OnClickList
     @BindView(R.id.tvSaving)
     TextView tvSaving;
 
-    Note note;
+    private Note note;
     private AlertEmptyNoteDialog dialog;
     private Realm realm;
 
@@ -78,7 +78,7 @@ public class AddingNoteActivity extends BaseActivity implements View.OnClickList
      * Init view
      */
     private void initView() {
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle(getResources().getString(R.string.write_note));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -187,9 +187,6 @@ public class AddingNoteActivity extends BaseActivity implements View.OnClickList
         }
     }
 
-    private void turnEmoji() {
-    }
-
     /**
      * Sharing a note
      */
@@ -204,8 +201,8 @@ public class AddingNoteActivity extends BaseActivity implements View.OnClickList
         final Dialog dialog = new Dialog(this);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.setContentView(R.layout.dialog_deleting);
-        TextView cancel = (TextView) dialog.findViewById(R.id.tvCancel);
-        final TextView delete = (TextView) dialog.findViewById(R.id.tvYes);
+        TextView cancel = dialog.findViewById(R.id.tvCancel);
+        final TextView delete = dialog.findViewById(R.id.tvYes);
         cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -230,7 +227,7 @@ public class AddingNoteActivity extends BaseActivity implements View.OnClickList
     /**
      * Delete note on realm database
      */
-    public void deleteOnRealm() {
+    private void deleteOnRealm() {
         realm.executeTransaction(new Realm.Transaction() {
             @Override
             public void execute(Realm realm) {

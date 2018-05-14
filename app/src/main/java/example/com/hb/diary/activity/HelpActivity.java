@@ -12,13 +12,14 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
 import example.com.hb.diary.R;
-import example.com.hb.diary.Utils.InternetConnectionUtil;
+import example.com.hb.diary.utils.InternetConnectionUtil;
 import example.com.hb.diary.fragment.OfflineFragment;
 
+import static example.com.hb.diary.utils.Constant.HELP_URL;
+
 public class HelpActivity extends BaseActivity {
-    private static final String HELP_URL = "https://www.writediary.com/help/app?lang=en#top";
-    Toolbar toolbar;
-    WebView webView;
+    private Toolbar toolbar;
+    private WebView webView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,7 +29,7 @@ public class HelpActivity extends BaseActivity {
         } else {
             alertOffline();
         }
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
@@ -37,7 +38,7 @@ public class HelpActivity extends BaseActivity {
      * Show web view
      */
     private void showHelp() {
-        webView = (WebView) findViewById(R.id.webview);
+        webView = findViewById(R.id.webview);
         webView.setWebViewClient(new MyBrowser());
         webView.setWebChromeClient(new WebChromeClient());
         webView.getSettings().setLoadsImagesAutomatically(true);

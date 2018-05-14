@@ -14,9 +14,11 @@ import example.com.hb.diary.activity.AddingNoteActivity;
  */
 
 public class AlertEmptyNoteDialog extends Dialog{
-    Activity context;
+    private Activity context;
 
-    TextView tvYes, tvNo, tvCancel;
+    private TextView tvYes;
+    private TextView tvNo;
+    private TextView tvCancel;
 
     public AlertEmptyNoteDialog(@NonNull Activity context) {
         super(context);
@@ -35,8 +37,8 @@ public class AlertEmptyNoteDialog extends Dialog{
     }
 
     private void initView() {
-        tvYes = (TextView) findViewById(R.id.tvYes);
-        tvNo = (TextView) findViewById(R.id.tvNo);
-        tvCancel = (TextView) findViewById(R.id.tvCancel);
+        tvYes = findViewById(R.id.tvYes);
+        tvNo = findViewById(R.id.tvNo);
+        tvCancel = findViewById(R.id.tvCancel);
     }
 }

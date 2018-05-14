@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="text_size_10">17sp</dimen>
-    <dimen name="text_size_11">18sp</dimen>
     <dimen name="text_size_12">20sp</dimen>
     <dimen name="text_size_14">22sp</dimen>
     <dimen name="text_size_15">24sp</dimen>
@@ -32,12 +31,10 @@
     <dimen name="margin_img_sync">6dp</dimen>
     <dimen name="margin_30">50dp</dimen>
     <dimen name="margin_40">60dp</dimen>
-    <dimen name="margin_60">85dp</dimen>
     <dimen name="margin_90">160dp</dimen>
     <dimen name="margin_140">220dp</dimen>
     <dimen name="image_deleting">30dp</dimen>
     <dimen name="height_searching_notifi">50dp</dimen>
-    <dimen name="image_lock_height">130dp</dimen>
     <dimen name="btn_save_height">100dp</dimen>
     <dimen name="image_in_edittext">50dp</dimen>
     <dimen name="btn_forgot_code_height">50dp</dimen>
@@ -49,7 +46,6 @@
     <dimen name="calender_shadow_width">5dp</dimen>
     <dimen name="calender_dimen">70dp</dimen>
     <dimen name="row_height">80dp</dimen>
-    <dimen name="edt_setting_style_height">80dp</dimen>
     <dimen name="row_height_bigger">90dp</dimen>
     <dimen name="img_close_passcode_frag">20dp</dimen>
     <dimen name="cloud_img_height">200dp</dimen>

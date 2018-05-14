@@ -23,7 +23,7 @@ public class AccountGuideActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_account_guide);
         ButterKnife.bind(this);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         App app = (App) getApplication();
@@ -64,7 +64,7 @@ public class AccountGuideActivity extends BaseActivity {
         startActivity(intent);
     }
 
-    void clickHelp(){
+    private void clickHelp(){
         Intent intent = new Intent(this, HelpActivity.class);
         startActivity(intent);
     }

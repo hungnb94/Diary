@@ -46,7 +46,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import example.com.hb.diary.App;
 import example.com.hb.diary.R;
-import example.com.hb.diary.Utils.MyFirebase;
+import example.com.hb.diary.utils.MyFirebase;
 import example.com.hb.diary.adapter.NoteAdapter;
 import example.com.hb.diary.model.Note;
 import io.realm.Realm;
@@ -54,15 +54,18 @@ import io.realm.RealmQuery;
 import io.realm.RealmResults;
 import io.realm.Sort;
 
+import static example.com.hb.diary.utils.Constant.CHANGE_DATE_STYLE;
+import static example.com.hb.diary.utils.Constant.FACEBOOK_URL;
+import static example.com.hb.diary.utils.Constant.REQUEST_CODE_ADD_NOTE;
+import static example.com.hb.diary.utils.Constant.REQUEST_CODE_EDIT_NOTE;
+import static example.com.hb.diary.utils.Constant.REQUEST_CODE_SETTING_STYLE_ACTIVITY;
+import static example.com.hb.diary.utils.Constant.RESULT_DELETE;
+
 public class MainActivity extends BaseActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-    private static final String TAG = MainActivity.class.getSimpleName();
+    private final String TAG = MainActivity.class.getSimpleName();
 
-    public static final int REQUEST_CODE_ADD_NOTE = 100;
-    public static final int REQUEST_CODE_EDIT_NOTE = 120;
-    private static final int REQUEST_CODE_SETTING_STYLE_ACTIVITY = 130;
-    private static final String FACEBOOK_URL = "https://m.facebook.com/WriteDiaryApp";
-    Realm realm;
+    private Realm realm;
 
     @BindView(R.id.listView)
     RecyclerView listView;
@@ -76,17 +79,24 @@ public class MainActivity extends BaseActivity
     TextView tvItemMatches;
     @BindView(R.id.progressBar)
     ProgressBar progressBar;
-    Button btnAccount;
-    TextView tvAccount;
-    LinearLayout llCodelock, llColorAndStyle, llReminder, llExport, llRate,
-            llRecommend, llVisitOnFB, llFeedback, llHelp, llAbout;
-    private NoteAdapter adapter;
+    private Button btnAccount;
+    private TextView tvAccount;
+    private LinearLayout llCodelock;
+    private LinearLayout llColorAndStyle;
+    private LinearLayout llReminder;
+    private LinearLayout llExport;
+    private LinearLayout llRecommend;
+    private LinearLayout llVisitOnFB;
+    private LinearLayout llHelp;
+    private LinearLayout llAbout;
     private RealmResults<Note> noteResults, allNotes;
-    LinearLayout navHeaderAccount;
+    private LinearLayout navHeaderAccount;
     private DrawerLayout drawer;
 
-    String email, password, userUid;
-    FirebaseAuth auth;
+    private String email;
+    private String password;
+    private String userUid;
+    private FirebaseAuth auth;
     private FloatingActionButton fab;
 
     @Override
@@ -106,7 +116,7 @@ public class MainActivity extends BaseActivity
     /**
      * Sync data between firebase and realm
      */
-    public void sync() {
+    private void sync() {
         if (auth.getCurrentUser() != null) {
             auth.signInWithEmailAndPassword(email, password)
                     .addOnCompleteListener(MainActivity.this, new OnCompleteListener<AuthResult>() {
@@ -138,11 +148,11 @@ public class MainActivity extends BaseActivity
         if (requestCode == REQUEST_CODE_ADD_NOTE && resultCode == RESULT_OK) {
             refreshListView();
         } else if (requestCode == REQUEST_CODE_EDIT_NOTE) {
-            if (resultCode == RESULT_OK || resultCode == AddingNoteActivity.RESULT_DELETE) {
+            if (resultCode == RESULT_OK || resultCode == RESULT_DELETE) {
                 refreshListView();
             }
         } else if (requestCode == REQUEST_CODE_SETTING_STYLE_ACTIVITY
-                && resultCode == SettingStyleActivity.CHANGE_DATE_STYLE) {
+                && resultCode == CHANGE_DATE_STYLE) {
             refreshListView();
         }
     }
@@ -151,31 +161,29 @@ public class MainActivity extends BaseActivity
      * Khởi tạo giao diện
      */
     private void initView() {
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle(getResources().getString(R.string.write_note));
 
-        drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        drawer = findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
         toggle.syncState();
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
         navHeaderAccount = findViewById(R.id.navHeaderAccount);
-        btnAccount = (Button) findViewById(R.id.btnAccount);
-        tvAccount = (TextView) findViewById(R.id.tvAccount);
-        llCodelock = (LinearLayout) findViewById(R.id.llCodelock);
-        llColorAndStyle = (LinearLayout) findViewById(R.id.llColorStyle);
-        llReminder = (LinearLayout) findViewById(R.id.llReminder);
-        llExport = (LinearLayout) findViewById(R.id.llExport);
-//        llRate = (LinearLayout) findViewById(R.id.llRateReview);
-        llRecommend = (LinearLayout) findViewById(R.id.llRecommendFriend);
-        llVisitOnFB = (LinearLayout) findViewById(R.id.llVisitFacebook);
-//        llFeedback = (LinearLayout) findViewById(R.id.llFeedback);
-        llHelp = (LinearLayout) findViewById(R.id.llHelp);
-        llAbout = (LinearLayout) findViewById(R.id.llAbout);
+        btnAccount = findViewById(R.id.btnAccount);
+        tvAccount = findViewById(R.id.tvAccount);
+        llCodelock = findViewById(R.id.llCodelock);
+        llColorAndStyle = findViewById(R.id.llColorStyle);
+        llReminder = findViewById(R.id.llReminder);
+        llExport = findViewById(R.id.llExport);
+        llRecommend = findViewById(R.id.llRecommendFriend);
+        llVisitOnFB = findViewById(R.id.llVisitFacebook);
+        llHelp = findViewById(R.id.llHelp);
+        llAbout = findViewById(R.id.llAbout);
         fab = findViewById(R.id.fab);
 
         fab.setOnClickListener(new View.OnClickListener() {
@@ -196,7 +204,7 @@ public class MainActivity extends BaseActivity
     public void refreshListView() {
         noteResults = realm.where(Note.class).findAll().sort(Note.FIELD_DATE, Sort.DESCENDING,
                 Note.FIELD_UPDATE_TIME, Sort.DESCENDING);
-        adapter = new NoteAdapter(MainActivity.this, noteResults);
+        NoteAdapter adapter = new NoteAdapter(MainActivity.this, noteResults);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(this);
         listView.setLayoutManager(mLayoutManager);
         listView.setItemAnimator(new DefaultItemAnimator());
@@ -241,7 +249,7 @@ public class MainActivity extends BaseActivity
 
     @Override
     public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
@@ -374,7 +382,7 @@ public class MainActivity extends BaseActivity
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.setContentView(R.layout.dialog_searching);
         // Tạo spinner
-        final Spinner spinner = (Spinner) dialog.findViewById(R.id.spinnerFilter);
+        final Spinner spinner = dialog.findViewById(R.id.spinnerFilter);
         // Danh sách của spinner
         ArrayList<String> years = new ArrayList<>();
         years.add(getResources().getString(R.string.all));
@@ -384,13 +392,13 @@ public class MainActivity extends BaseActivity
             String year = format.format(new Date(note.getDate()));
             if (!years.contains(year)) years.add(year);
         }
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>
+        ArrayAdapter<String> adapter = new ArrayAdapter<>
                 (this, R.layout.item_spinner, years);
         adapter.setDropDownViewResource(R.layout.item_spinner);
         spinner.setAdapter(adapter);
-        TextView search = (TextView) dialog.findViewById(R.id.tvSearch);
-        TextView close = (TextView) dialog.findViewById(R.id.tvClose);
-        final EditText field = (EditText) dialog.findViewById(R.id.edtSearch);
+        TextView search = dialog.findViewById(R.id.tvSearch);
+        TextView close = dialog.findViewById(R.id.tvClose);
+        final EditText field = dialog.findViewById(R.id.edtSearch);
         close.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -438,14 +446,8 @@ public class MainActivity extends BaseActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
-        switch (id) {
-            case R.id.nav_codelock:
-                break;
-            default:
-                break;
-        }
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }

@@ -14,7 +14,7 @@
     <string name="cancel">Cancel</string>
     <string name="no">No</string>
     <string name="yes">Yes</string>
-    <string name="saving">Saving...</string>
+    <string name="saving">Saving…</string>
     <string name="write_note">Write note</string>
     <string name="view_note">View note</string>
     <string name="share_note">Share note</string>
@@ -36,10 +36,8 @@
     <string name="color_and_style">Color and style</string>
     <string name="reminder">Reminder</string>
     <string name="export">Export</string>
-    <string name="rate_review">Rate and review</string>
     <string name="recommend_frend">Recommended to a friend</string>
     <string name="visit_facebook">Visit us on Facebook</string>
-    <string name="feedback">Feedback</string>
     <string name="help">Help</string>
     <string name="about">About</string>
     <string name="guide_lock">Use code lock to protect your diary</string>
@@ -62,7 +60,6 @@
     <string name="date_style">Date style</string>
     <string name="short_cut">Shortcut</string>
     <string name="add_shortcut">The icon was added to your home screen.</string>
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="codelock_activated">Codelock activated</string>
     <string name="codelock_deactivated">Codelock deactivated</string>
     <string name="codelock_setup">Codelock setup</string>
@@ -91,7 +88,6 @@
     <string name="verify_now">Verify now</string>
     <string name="reminder_setup">Reminder setup</string>
     <string name="reminder_guide">We all know how easy it can be to forget sometimes. Help yourself to remember to update your diary.</string>
-    <string name="how_do_you_feel">How do you feel about WriteDiary?</string>
     <string name="action_help">Help</string>
     <string name="create_cloud_account">Create cloud account</string>
     <string name="repeat_password">Repeat password</string>
@@ -107,14 +103,13 @@
     <string name="tos_must_accept">Terms Of Service must be accepted.</string>
     <string name="account_exists">Account already exists</string>
     <string name="some_error_occur">Some error occur</string>
-    <string name="oh_no">Oh no!</string>
     <string name="take_a_look">Take a look at \"Diary with lock\"</string>
     <string name="cloud_account">Cloud account</string>
     <string name="sync_only_wify">Sync only via Wify</string>
     <string name="change_password">Change password</string>
     <string name="sign_out">Sign out</string>
     <string name="terminate_acc">Terminate account</string>
-    <string name="connecting_to_cloud">Connecting to cloud...</string>
+    <string name="connecting_to_cloud">Connecting to cloud…</string>
     <string name="sign_out_guide">When disconnected, cloud syncing will stop, Any changes will only be stored on this devices.</string>
     <string name="disconnected">Disconnected?</string>
     <string name="disconnected_guide">From now on, changes will only be saved on this device.</string>
@@ -140,4 +135,8 @@
     <string name="account_deleted">Your cloud account is now deleted.</string>
     <string name="account_deleted_2">From now on, changes will only be saved on this device.</string>
     <string name="reset_password_guide">We have sent you instructions to reset your password!</string>
+    <string name="exit">Exit</string>
+    <string name="search">Search</string>
+    <string name="example_email">example@gmail.com</string>
+    <string name="add_title">Add title</string>
 </resources>

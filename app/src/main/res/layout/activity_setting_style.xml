@@ -36,7 +36,6 @@
             android:orientation="vertical">
 
 
-            //Theme
             <TextView
                 style="@style/TextViewSettingStyle"
                 android:text="@string/theme" />
@@ -44,7 +43,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/row_height"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:baselineAligned="false">
 
                 <LinearLayout
                     android:id="@+id/llTheme"
@@ -72,8 +72,6 @@
             </LinearLayout>
 
 
-            //Text style
-
             <TextView
                 style="@style/TextViewSettingStyle"
                 android:text="@string/text_style" />
@@ -82,7 +80,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <example.com.hb.diary.Utils.LineEditText
+                <example.com.hb.diary.utils.LineEditText
                     android:textSize="@dimen/text_size_17"
                     android:id="@+id/edtContentDemo"
                     android:layout_width="0dp"
@@ -146,7 +144,7 @@
 
                 <SeekBar
                     android:id="@+id/seekBar"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_weight="1"
@@ -195,7 +193,8 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/row_height">
+                android:layout_height="@dimen/row_height"
+                android:baselineAligned="false">
 
                 <LinearLayout
                     android:layout_width="0dp"

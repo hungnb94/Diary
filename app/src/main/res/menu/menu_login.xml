@@ -4,21 +4,20 @@
 
 
     <item
-        android:id="@+id/action_settings"
         android:icon="@drawable/menu_option"
         android:title="@string/action_settings"
-        app:showAsAction="always">
+        app:showAsAction="ifRoom">
         <menu>
             <item
                 android:id="@+id/action_reset_password"
                 android:icon="@drawable/lock_black"
                 android:title="@string/reset_password"
-                app:showAsAction="always" />
+                app:showAsAction="ifRoom" />
             <item
                 android:id="@+id/action_help"
                 android:icon="@drawable/help_black"
                 android:title="@string/help"
-                app:showAsAction="always" />
+                app:showAsAction="ifRoom" />
         </menu>
     </item>
 </menu>

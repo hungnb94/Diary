@@ -19,10 +19,13 @@
             android:textSize="@dimen/text_size_16" />
 
         <EditText
+            android:inputType="text"
+            android:maxLines="1"
+            android:hint="@string/search"
             android:textColor="@android:color/white"
             android:backgroundTint="@color/colorLightBlue"
             android:gravity="center_vertical"
-            android:layout_marginLeft="@dimen/padding_dialog"
+            android:layout_marginStart="@dimen/padding_dialog"
             android:textSize="@dimen/text_size_17"
             android:id="@+id/edtSearch"
             android:layout_width="0dp"
@@ -38,9 +41,9 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_alignParentRight="true"
-            android:layout_gravity="right"
-            android:gravity="right">
+            android:layout_alignParentEnd="true"
+            android:layout_gravity="end"
+            android:gravity="end">
 
             <TextView
                 android:id="@+id/tvClose"

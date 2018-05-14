@@ -18,9 +18,9 @@ import butterknife.OnClick;
 import example.com.hb.diary.App;
 import example.com.hb.diary.R;
 import example.com.hb.diary.activity.MainActivity;
+import example.com.hb.diary.utils.Constant;
 
 public class PasscodeChangeFragment extends Fragment {
-    public static final String MESSAGE = "message";
     @BindView(R.id.layoutPasscodeChange)
     RelativeLayout rootLayout;
     @BindView(R.id.tvMessage)
@@ -41,7 +41,7 @@ public class PasscodeChangeFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            message = getArguments().getString(MESSAGE, "");
+            message = getArguments().getString(Constant.ARG_MESSAGE, "");
         }
     }
 
@@ -52,7 +52,7 @@ public class PasscodeChangeFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_passcode_change, container, false);
 
         ButterKnife.bind(this, view);
-        Toolbar toolbar = (Toolbar) view.findViewById(R.id.toolbarChangePasscode);
+        Toolbar toolbar = view.findViewById(R.id.toolbarChangePasscode);
         App app = (App) getActivity().getApplication();
         int backgroundColor = app.getBackgroundColor();
         rootLayout.setBackgroundColor(backgroundColor);

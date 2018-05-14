@@ -16,8 +16,10 @@ import example.com.hb.diary.activity.AddingNoteActivity;
  */
 
 public class SaveChangeDialog extends Dialog {
-    TextView tvYes, tvNo, tvCancel;
-    Activity context;
+    private TextView tvYes;
+    private TextView tvNo;
+    private TextView tvCancel;
+    private Activity context;
 
     public SaveChangeDialog(@NonNull Activity context) {
         super(context);
@@ -53,8 +55,8 @@ public class SaveChangeDialog extends Dialog {
     }
 
     private void initView() {
-        tvCancel = (TextView) findViewById(R.id.tvCancel);
-        tvNo = (TextView) findViewById(R.id.tvNo);
-        tvYes = (TextView) findViewById(R.id.tvYes);
+        tvCancel = findViewById(R.id.tvCancel);
+        tvNo = findViewById(R.id.tvNo);
+        tvYes = findViewById(R.id.tvYes);
     }
 }

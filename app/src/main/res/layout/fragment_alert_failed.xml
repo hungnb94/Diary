@@ -26,11 +26,12 @@
                 android:layout_height="match_parent">
 
                 <ImageView
+                    android:contentDescription="@string/exit"
                     android:id="@+id/ivClose"
                     android:layout_width="@dimen/img_close_passcode_frag"
                     android:layout_height="@dimen/img_close_passcode_frag"
                     android:layout_gravity="center_vertical"
-                    android:layout_marginLeft="@dimen/margin_medium"
+                    android:layout_marginStart="@dimen/margin_medium"
                     android:src="@drawable/delete" />
 
             </LinearLayout>
@@ -43,7 +44,7 @@
                 <android.support.v7.widget.Toolbar
                     android:id="@+id/toolbar"
                     android:layout_width="match_parent"
-                    android:layout_height="?attr/actionBarSize"
+                    android:layout_height="match_parent"
                     app:title="@string/sign_in"
                     app:titleTextColor="@color/colorWhite" />
 
@@ -56,6 +57,7 @@
             android:layout_weight="0.4" />
 
         <ImageView
+            android:contentDescription="@string/error"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="0.5"
@@ -111,7 +113,6 @@
                 android:id="@+id/btnClose"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/btn_save_height"
-                android:layout_alignParentBottom="true"
                 android:alpha="0.8"
                 android:background="@color/brownAccount"
                 android:text="@string/ok"

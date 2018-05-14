@@ -34,18 +34,23 @@ import butterknife.OnClick;
 import butterknife.OnFocusChange;
 import example.com.hb.diary.App;
 import example.com.hb.diary.R;
-import example.com.hb.diary.Utils.Config;
-import example.com.hb.diary.Utils.InternetConnectionUtil;
-import example.com.hb.diary.Utils.MySharedPreference;
+import example.com.hb.diary.utils.Constant;
+import example.com.hb.diary.utils.InternetConnectionUtil;
+import example.com.hb.diary.preference.MySharedPreference;
 import example.com.hb.diary.fragment.AlertFailedFragment;
 import example.com.hb.diary.fragment.AlertSuccessFragment;
 import example.com.hb.diary.fragment.OfflineFragment;
 
+import static example.com.hb.diary.utils.Constant.ARG_MESSAGE;
+import static example.com.hb.diary.utils.Constant.ARG_SMALL_TITLE;
+import static example.com.hb.diary.utils.Constant.ARG_TITLE;
+import static example.com.hb.diary.utils.Constant.RC_SIGN_IN;
+
 public class SignUpActivity extends BaseActivity {
-    private static final int RC_SIGN_IN = 94;
-    private static final String TAG = SignUpActivity.class.getSimpleName();
-    App app;
-    MySharedPreference preference;
+    private final String TAG = SignUpActivity.class.getSimpleName();
+
+    private App app;
+    private MySharedPreference preference;
     @BindView(R.id.rootLayout)
     RelativeLayout rootLayout;
     @BindView(R.id.toolbar)
@@ -63,7 +68,7 @@ public class SignUpActivity extends BaseActivity {
     @BindView(R.id.progressBar)
     ProgressBar progressBar;
     private GoogleSignInClient mGoogleSignInClient;
-    int firstClickEmail = 0;
+    private int firstClickEmail = 0;
     private FirebaseAuth auth;
 
     @Override
@@ -155,7 +160,7 @@ public class SignUpActivity extends BaseActivity {
             edtPassword.setError(getResources().getString(R.string.mandatory));
             return;
         }
-        if (password.length() < Config.MIN_PASSWORD_LENG) {
+        if (password.length() < Constant.MIN_PASSWORD_LENG) {
             edtPassword.setError(getResources().getString(R.string.too_short));
             return;
         }
@@ -204,10 +209,10 @@ public class SignUpActivity extends BaseActivity {
                             task.getException().printStackTrace();
                             fragment = new AlertFailedFragment();
                             Bundle bundle = new Bundle();
-                            bundle.putString(AlertFailedFragment.ARG_TITLE,
+                            bundle.putString(ARG_TITLE,
                                     getResources().getString(R.string.account_exists));
-                            bundle.putString(AlertFailedFragment.ARG_SMALL_TITLE, email);
-                            bundle.putString(AlertFailedFragment.ARG_MESSAGE,
+                            bundle.putString(ARG_SMALL_TITLE, email);
+                            bundle.putString(ARG_MESSAGE,
                                     getResources().getString(R.string.if_you_fogot_password));
                             fragment.setArguments(bundle);
                         }

@@ -1,4 +1,4 @@
-package example.com.hb.diary.Utils;
+package example.com.hb.diary.preference;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -11,7 +11,7 @@ import static android.content.Context.MODE_PRIVATE;
 
 public class MySharedPreference {
     public static final String DATE_FORMAT_TYPE = "date_format";
-    public static final String SHARED_PREFERENCE_NAME = "my_diary";
+    private static final String SHARED_PREFERENCE_NAME = "my_diary";
     public static final String CODE_LOCK = "code";
     public static final String EMAIL_FOR_CODE = "email";
     public static final String EMAIL_LOGIN = "email_login";
@@ -23,7 +23,7 @@ public class MySharedPreference {
     public static final String IS_UNDERLINE="underline";
     public static final String IS_SYNC_WIFI_ONLY = "wifi";
 
-    SharedPreferences myShared;
+    private SharedPreferences myShared;
 
     public MySharedPreference(Context context) {
         myShared=context.getSharedPreferences(SHARED_PREFERENCE_NAME, MODE_PRIVATE);
@@ -36,8 +36,7 @@ public class MySharedPreference {
     }
 
     public String getString(String key, String defaultValue){
-        String value = myShared.getString(key, defaultValue);
-        return value;
+        return myShared.getString(key, defaultValue);
     }
 
     public boolean putInt(String key, int value){
@@ -47,8 +46,7 @@ public class MySharedPreference {
     }
 
     public int getInt(String key, int defaultValue){
-        int value = myShared.getInt(key, defaultValue);
-        return value;
+        return myShared.getInt(key, defaultValue);
     }
 
     public boolean remove(String key){
@@ -64,8 +62,7 @@ public class MySharedPreference {
     }
 
     public float getFloat(String key, int defaultValue){
-        float value = myShared.getFloat(key, defaultValue);
-        return value;
+        return myShared.getFloat(key, defaultValue);
     }
 
     public boolean putBoolean(String key, boolean value){
@@ -75,7 +72,6 @@ public class MySharedPreference {
     }
 
     public boolean getBoolean(String key, boolean defaultValue){
-        boolean value = myShared.getBoolean(key, defaultValue);
-        return value;
+        return myShared.getBoolean(key, defaultValue);
     }
 }

@@ -98,7 +98,6 @@
                 android:id="@+id/btnClose"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/btn_save_height"
-                android:layout_alignParentBottom="true"
                 android:alpha="0.8"
                 android:background="@color/brownAccount"
                 android:text="@string/ok"

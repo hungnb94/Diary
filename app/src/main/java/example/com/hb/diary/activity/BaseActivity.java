@@ -60,7 +60,7 @@ public class BaseActivity extends AppCompatActivity {
      * @param paramThread
      * @param paramThrowable
      */
-    public void myHandaling(Thread paramThread, Throwable paramThrowable) {
+    private void myHandaling(Thread paramThread, Throwable paramThrowable) {
         Log.e("Alert", "Lets See if it Works !!!" + "ParamThread:::" + paramThread + "ParamThrowable:::" + paramThrowable);
         paramThrowable.printStackTrace();
         Toast.makeText(example.com.hb.diary.activity.BaseActivity.this,

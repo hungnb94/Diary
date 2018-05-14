@@ -24,15 +24,17 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import example.com.hb.diary.App;
-import example.com.hb.diary.Utils.LineEditText;
+import example.com.hb.diary.utils.LineEditText;
 import example.com.hb.diary.R;
-import example.com.hb.diary.Utils.MySharedPreference;
+import example.com.hb.diary.preference.MySharedPreference;
+
+import static example.com.hb.diary.utils.Constant.BACKGROUND_COLOR_DIALOG_ID;
+import static example.com.hb.diary.utils.Constant.CHANGE_DATE_STYLE;
+import static example.com.hb.diary.utils.Constant.TEXT_COLOR_DIALOG_ID;
 
 public class SettingStyleActivity extends BaseActivity implements ColorPickerDialogListener {
-    private static final int BACKGROUND_COLOR_DIALOG_ID = 10;
-    private static final int TEXT_COLOR_DIALOG_ID = 20;
-    private static final String TAG = SettingStyleActivity.class.getSimpleName();
-    public static final int CHANGE_DATE_STYLE = 30;
+    private final String TAG = SettingStyleActivity.class.getSimpleName();
+
     @BindView(R.id.layoutSettingStyle)
     LinearLayout rootLayout;
     @BindView(R.id.llTheme)
@@ -61,14 +63,13 @@ public class SettingStyleActivity extends BaseActivity implements ColorPickerDia
     ImageView ivShortcut4;
 
     private int[] colors;
-    ImageButton[] btnColors;
-    int backgroundColor, textColor;
-    float defaultTextsize;
-    float newTextSize;
+    private ImageButton[] btnColors;
+    private int backgroundColor;
+    private int textColor;
+    private float defaultTextsize;
     private MySharedPreference pre;
     private float textSize;
     public static final int TEXT_SIZE_SCALE = 5;
-    private int dateStyle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -124,7 +125,7 @@ public class SettingStyleActivity extends BaseActivity implements ColorPickerDia
 
     private void initView() {
         ButterKnife.bind(this);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarSettingStyle);
+        Toolbar toolbar = findViewById(R.id.toolbarSettingStyle);
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle(getResources().getString(R.string.color_and_style));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -133,7 +134,6 @@ public class SettingStyleActivity extends BaseActivity implements ColorPickerDia
         backgroundColor = app.getBackgroundColor();
         rootLayout.setBackgroundColor(backgroundColor);
         textColor = app.getTextColor();
-        dateStyle = app.getDateFormatType();
         edtContentDemo.setTextColor(textColor);
         float textSize = app.getTextSize();
         defaultTextsize = edtContentDemo.getTextSize() / 2;
@@ -142,6 +142,25 @@ public class SettingStyleActivity extends BaseActivity implements ColorPickerDia
         if (textSize > 0) {
             edtContentDemo.setTextSize(defaultTextsize + textSize);
             seekBar.setProgress((int) (textSize * TEXT_SIZE_SCALE));
+        }
+        int dateStyle = app.getDateFormatType();
+        llCalendar1.setBackgroundColor(Color.TRANSPARENT);
+        llCalendar2.setBackgroundColor(Color.TRANSPARENT);
+        llCalendar3.setBackgroundColor(Color.TRANSPARENT);
+        llCalendar4.setBackgroundColor(Color.TRANSPARENT);
+        switch (dateStyle) {
+            case 2:
+                llCalendar2.setBackgroundColor(Color.WHITE);
+                break;
+            case 3:
+                llCalendar3.setBackgroundColor(Color.WHITE);
+                break;
+            case 4:
+                llCalendar4.setBackgroundColor(Color.WHITE);
+                break;
+            default:
+                llCalendar1.setBackgroundColor(Color.WHITE);
+                break;
         }
 
         TypedArray typedArray = getResources().obtainTypedArray(R.array.colors);
@@ -252,24 +271,15 @@ public class SettingStyleActivity extends BaseActivity implements ColorPickerDia
 
     @OnClick(R.id.ivShortcut1)
     public void createShortcut1(View view) {
-        Intent shortcutIntent = new Intent(getApplicationContext(), SplashActivity.class);
-        shortcutIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        shortcutIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        shortcutIntent.setAction(Intent.ACTION_MAIN);
-
-        Intent addIntent = new Intent();
-        addIntent.putExtra(Intent.EXTRA_SHORTCUT_INTENT, shortcutIntent);
-        addIntent.putExtra(Intent.EXTRA_SHORTCUT_NAME, getResources().getString(R.string.app_name));
-        addIntent.putExtra(Intent.EXTRA_SHORTCUT_ICON_RESOURCE,
-                Intent.ShortcutIconResource.fromContext(getApplicationContext(), R.drawable.ic_launcher_blue));
-
-        addIntent.setAction("com.android.launcher.action.INSTALL_SHORTCUT");
-        addIntent.putExtra("duplicate", false);
-        getApplicationContext().sendBroadcast(addIntent);
-        Toast.makeText(this, getResources().getString(R.string.add_shortcut), Toast.LENGTH_SHORT).show();
+        createShortcutByIcon(R.drawable.ic_launcher_blue);
     }
 
-    public void createShortcutByIcon(int icon) {
+    /**
+     * Create shortcut by icon id
+     *
+     * @param icon: icon id
+     */
+    private void createShortcutByIcon(int icon) {
         Intent shortcutIntent = new Intent(getApplicationContext(), SplashActivity.class);
         shortcutIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         shortcutIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -332,9 +342,10 @@ public class SettingStyleActivity extends BaseActivity implements ColorPickerDia
 
     /**
      * Save background color setting
+     *
      * @param backgroundColor
      */
-    public void saveBackgroundColor(int backgroundColor) {
+    private void saveBackgroundColor(int backgroundColor) {
         if (pre == null) pre = new MySharedPreference(SettingStyleActivity.this);
         pre.putInt(MySharedPreference.BACKGROUND_COLOR, backgroundColor);
         App app = (App) getApplication();
@@ -343,24 +354,13 @@ public class SettingStyleActivity extends BaseActivity implements ColorPickerDia
 
     /**
      * Save text color setting
+     *
      * @param textColor
      */
-    public void saveTextColor(int textColor) {
+    private void saveTextColor(int textColor) {
         if (pre == null) pre = new MySharedPreference(SettingStyleActivity.this);
         pre.putInt(MySharedPreference.TEXT_COLOR, textColor);
         App app = (App) getApplication();
         app.setTextColor(textColor);
     }
-
-    /**
-     * Save text size setting
-     * @param textSize
-     */
-    public void saveTextSize(int textSize) {
-        if (pre == null) pre = new MySharedPreference(SettingStyleActivity.this);
-        pre.putInt(MySharedPreference.TEXT_SIZE, textSize);
-        App app = (App) getApplication();
-        app.setTextSize(textSize);
-    }
-
 }

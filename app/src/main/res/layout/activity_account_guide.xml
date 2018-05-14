@@ -157,7 +157,6 @@
                 android:id="@+id/btnSignUp"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/btn_save_height"
-                android:layout_alignParentBottom="true"
                 android:alpha="0.8"
                 android:background="@color/brownAccount"
                 android:text="@string/sign_up"
@@ -172,18 +171,14 @@
                 android:orientation="vertical">
 
                 <View
-                    android:id="@+id/view"
                     android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_below="@id/btnSavePassword" />
+                    android:layout_height="1dp" />
 
 
                 <Button
                     android:id="@+id/btnLogIn"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/btn_deactive"
-                    android:layout_alignParentBottom="true"
-                    android:layout_below="@+id/view"
                     android:alpha="0.8"
                     android:background="@color/brownAccount"
                     android:text="@string/sign_in_existing_account"
